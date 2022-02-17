@@ -75,4 +75,5 @@ On average, we see that students underestimate the amount of time that they them
 *Put here images of your wireframes*
 
 ## Future iterations
-
+New features and individuality - that distinguishes us from others is planning and discussing in team, testing and exploring other same projects for that. 
+Genius in simplicity is duty, our design will be very user-friendly, because such projects is hard to understand for new users, that is the main reason why people wants to ignore such platforms and still using paper-work, especially in our country.
