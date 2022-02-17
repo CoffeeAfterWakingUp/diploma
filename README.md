@@ -3,6 +3,7 @@
 + **Zhomartuly Almas** (*180107231*)- UI / UX Designer (GitHub account: *https://github.com/almasjomartuly*)
 + **Bimende Yeleukenov(180107211) - Backend Developer (GitHub account:https://github.com/BimendeYeleukenov)
 + *Muratkaliuly Yerasyl (180107144) - UI/UX designer* (Github account: https://github.com/B0YMAN1)
++ **Baibolatov Dastan** (*180107131*)- FullStack developer (GitHub account: *https://github.com/180107131*)
 
 ## Project
 This project is yet-another clone of CRMs
