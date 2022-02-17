@@ -1,16 +1,19 @@
 # CSS 410 Research tools and methods
 ## Team members
 + **Zhomartuly Almas** (*180107231*)- UI / UX Designer (GitHub account: *https://github.com/almasjomartuly*)
-+ **Jacky Chan** (*180100013*) - Frontend Developer (GitHub account: *jackychan*)
++ **Bimende Yeleukenov(180107211) - Backend Developer (GitHub account:https://github.com/BimendeYeleukenov)
 
 ## Project
-This project is yet-another clone of Instagram
+This project is yet-another clone of CRMs
 
 ## Alternatives / Market research
 | Research alternatives
 AlfaCRM https://alfacrm.pro/#googtrans(ru|null)
 
-## Goals
+https://www.bitrix24.kz/features/landing/crmforsales/?gclid=CjwKCAiAgbiQBhAHEiwAuQ6BkvvX38cBeYrZ2UjELiFSnhYjEZxFNcKyq-aOCis96ETkFOLdNGcW4BoCXH0QAvD_BwE
+
+
+
 
 ## Technologies
 In our project we use **Laravel**, **VueJS**
@@ -25,13 +28,19 @@ We will have following pages:
 
 ## Goals
 * What is the purpose of this project?
+The goal of our project is to create a convenient CRM platform for everyone.
 
 * What are the problems it will solve?
+Our project automates the work with the client.
+
 * How will it streamline or improve the current process or facilitate a new process?
+All information will be contained in one platform. This is convenient for both the customer and the client.
+
 * What is the product vision?
+CRM Platform with a simple and user-friendly interface.
 
 ## User Personas
-*Write description of user personas here*  
+*businessmen, teachers, students and so on*  
 
 ## User stories
 
@@ -39,16 +48,18 @@ We will have following pages:
 
 ## Sitemap, Page descriptions
 
-*Display sitemap here*
+*Display sitemap her*
 
 ## Non-Functional requirements
-*Write non-functional requirements*
+The project must work in all modern browsers
+The project must be responsive (work well and look good on all screen sizes)
+The project must be able to support 500 simultaneous users
 
 ## Risks
-*What are the risks?*
+*What are the risks?    *
 
 ## Mockups, Wireframes
 *Put here images of your wireframes*
 
 ## Future iterations
-*Write your future iterations*
+
