@@ -24,6 +24,9 @@ In our project we use **Laravel**, **VueJS**
 We will have following pages:
 -Home page
 -Sign in / Sign up page 
+-Attendance and Calendar pages
+-Educational/Content page
+-Personal account for teacher/customer,user/client,user parent/user advisor page
 -News page 
 -FAQ page
 -Contacts page
@@ -33,7 +36,7 @@ We will have following pages:
 The goal of our project is to create a convenient CRM platform for everyone.
 
 * What are the problems it will solve?
-Our project automates the work with the client.
+Our project will automate the customer - client relationship, developes small-medium bussinesses into new level.
 
 * How will it streamline or improve the current process or facilitate a new process?
 All information will be contained in one platform. This is convenient for both the customer and the client.
@@ -42,13 +45,20 @@ All information will be contained in one platform. This is convenient for both t
 CRM Platform with a simple and user-friendly interface.
 
 ## User Personas
-*businessmen, teachers, students and so on*  
+*teacher/customer, student/user/client, user parent/user advisor*  
 
 ## User stories
 
 *Write your user stories here*
 
 ## Sitemap, Page descriptions
+-Sign in / Sign up page - Simple registration process.
+-Attendance and Calendar pages - taking attendance will help to improve client attitude, focus and taking seriously 
+-Educational/Content page - Separate content page makes the understanding process better.
+-Personal account for teacher/customer,user/client,user parent/user advisor page - taking care of users activities and monitoring increases client efficiency.
+-News page - opportunity to sale products for customers and finding helpful courses for clients.
+-FAQ page - About us and sign of developers.
+-Contacts page - Support system and links. 
 
 *Display sitemap her*
 
@@ -58,7 +68,8 @@ The project must be responsive (work well and look good on all screen sizes)
 The project must be able to support 500 simultaneous users
 
 ## Risks
-*What are the risks?    *
+Underestimation of time/resource commitment
+On average, we see that students underestimate the amount of time that they themselves will need to invest in the project to move it forward quickly. After all, many of us are already working full-time, and the website design is in addition. All participants in the project should have sufficient time to perform their normal duties. *
 
 ## Mockups, Wireframes
 *Put here images of your wireframes*
