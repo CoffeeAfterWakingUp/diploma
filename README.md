@@ -4,6 +4,7 @@
 + **Bimende Yeleukenov(180107211) - Backend Developer (GitHub account:https://github.com/BimendeYeleukenov)
 + *Muratkaliuly Yerasyl (180107144) - UI/UX designer* (Github account: https://github.com/B0YMAN1)
 + **Baibolatov Dastan** (*180107131*)- FullStack developer (GitHub account: *https://github.com/180107131*)
++ **Syrbek Olzhas** (*180103273*)- Backend Developer (GitHub account: *https://github.com/CoffeeAfterWakingUp*)
 
 ## Project
 This project is yet-another clone of CRMs
@@ -60,7 +61,8 @@ CRM Platform with a simple and user-friendly interface.
 -FAQ page - About us and sign of developers.
 -Contacts page - Support system and links. 
 
-*Display sitemap her*
+![sitemap](https://user-images.githubusercontent.com/76391010/154613182-59bf236b-61bf-47ba-adf5-fa9885205e08.png)
+
 
 ## Non-Functional requirements
 The project must work in all modern browsers
