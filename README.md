@@ -49,8 +49,11 @@ CRM Platform with a simple and user-friendly interface.
 *teacher/customer, student/user/client, user parent/user advisor*  
 
 ## User stories
+*Website Users
+Аs a user , it is inconvenient for me to take a lesson on one platform and then a test on another . And I want the possibility that all these things were in one place in one platform.
 
-*Write your user stories here*
+*Website Admin
+During the quarantine, it was difficult to conduct lessons or take a test from students, or check their attendance.It was necessary to conduct lessons on one platform, to test the knowledge of students on the other, it was very inconvenient.In idela it would be to have it all in one place in one platform.
 
 ## Sitemap, Page descriptions
 -Sign in / Sign up page - Simple registration process.
