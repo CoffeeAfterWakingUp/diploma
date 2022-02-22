@@ -19,7 +19,7 @@ https://www.bitrix24.kz/features/landing/crmforsales/?gclid=CjwKCAiAgbiQBhAHEiwA
 
 
 ## Technologies
-In our project we use **Laravel**, **VueJS**
+In our project we use **Laravel**, **VueJS** , **Java-Spring**
 
 ## Pages / Activities 
 We will have following pages:
