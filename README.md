@@ -56,13 +56,13 @@ CRM Platform with a simple and user-friendly interface.
 During the quarantine, it was difficult to conduct lessons or take a test from students, or check their attendance.It was necessary to conduct lessons on one platform, to test the knowledge of students on the other, it was very inconvenient.In idela it would be to have it all in one place in one platform.
 
 ## Sitemap, Page descriptions
--Sign in / Sign up page - Simple registration process.
--Attendance and Calendar pages - taking attendance will help to improve client attitude, focus and taking seriously 
--Educational/Content page - Separate content page makes the understanding process better.
--Personal account for teacher/customer,user/client,user parent/user advisor page - taking care of users activities and monitoring increases client efficiency.
--News page - opportunity to sale products for customers and finding helpful courses for clients.
--FAQ page - About us and sign of developers.
--Contacts page - Support system and links. 
+-Sign in / Sign up page - Simple registration process.  
+-Attendance and Calendar pages - taking attendance will help to improve client attitude, focus and taking seriously   
+-Educational/Content page - Separate content page makes the understanding process better.  
+-Personal account for teacher/customer,user/client,user parent/user advisor page - taking care of users activities and monitoring increases client efficiency.  
+-News page - opportunity to sale products for customers and finding helpful courses for clients.  
+-FAQ page - About us and sign of developers.  
+-Contacts page - Support system and links.   
 
 ![sitemap](https://user-images.githubusercontent.com/76391010/154613182-59bf236b-61bf-47ba-adf5-fa9885205e08.png)
 
