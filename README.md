@@ -8,6 +8,7 @@
 
 ## Project
 We are going to create web-platform, that will be helpful for small-medium business at our country. Maybe later, we will choose another idea to implement.
+Creation of the system "QCRM", for managing customer relationships.
 
 ## Alternatives / Market research
 | Research alternatives
