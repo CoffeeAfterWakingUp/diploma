@@ -79,7 +79,8 @@ Underestimation of time/resource commitment
 On average, we see that students underestimate the amount of time that they themselves will need to invest in the project to move it forward quickly. After all, many of us are already working full-time, and the website design is in addition. All participants in the project should have sufficient time to perform their normal duties. *
 
 ## Mockups, Wireframes
-*Put here images of your wireframes*
+![wireframe#1](https://user-images.githubusercontent.com/76391010/155378574-5730866b-8d5f-4590-a29e-1497b454b947.png)
+
 
 ## Future iterations
 New features and individuality - that distinguishes us from others is planning and discussing in team, testing and exploring other same projects for that. 
