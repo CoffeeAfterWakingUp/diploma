@@ -1,36 +1,36 @@
 # CSS 410 Research tools and methods
 ## Team members
 + **Zhomartuly Almas** (*180107231*)- UI / UX Designer (GitHub account: *https://github.com/almasjomartuly*)
-+ **Bimende Yeleukenov** (*180107211*) - Backend Developer (GitHub account:https://github.com/BimendeYeleukenov)
-+ **Muratkaliuly Yerasyl** (*180107144*) - UI/UX designer (Github account: https://github.com/B0YMAN1)
++ **Bimende Yeleukenov(180107211) - Backend Developer (GitHub account:https://github.com/BimendeYeleukenov)
++ *Muratkaliuly Yerasyl (180107144) - UI/UX designer* (Github account: https://github.com/B0YMAN1)
 + **Baibolatov Dastan** (*180107131*)- FullStack developer (GitHub account: *https://github.com/180107131*)
 + **Syrbek Olzhas** (*180103273*)- Backend Developer (GitHub account: *https://github.com/CoffeeAfterWakingUp*)
 
 ## Project
-This project is yet-another clone of CRMs
+We are going to create web-platform, that will be helpful for small-medium business at our country. Maybe later, we will choose another idea to implement.
 
 ## Alternatives / Market research
-Research alternatives
-- AlfaCRM https://alfacrm.pro/#googtrans(ru|null)
-- Bitrix24 https://www.bitrix24.kz/features/landing/crmforsales/?gclid=CjwKCAiAgbiQBhAHEiwAuQ6BkvvX38cBeYrZ2UjELiFSnhYjEZxFNcKyq-aOCis96ETkFOLdNGcW4BoCXH0QAvD_BwE
+| Research alternatives
+AlfaCRM https://alfacrm.pro/#googtrans(ru|null)
+
+https://www.bitrix24.kz/features/landing/crmforsales/?gclid=CjwKCAiAgbiQBhAHEiwAuQ6BkvvX38cBeYrZ2UjELiFSnhYjEZxFNcKyq-aOCis96ETkFOLdNGcW4BoCXH0QAvD_BwE
 
 
 
 
 ## Technologies
-- Backend: Java(Spring Boot)
-- Frontend: HTML, CSS, JS
+In our project we use **Laravel**, **VueJS** , **Java-Spring**
 
 ## Pages / Activities 
 We will have following pages:
-- Home page
-- Sign in / Sign up page 
-- Attendance and Calendar pages
-- Educational/Content page
-- Personal account for teacher/customer,user/client,user parent/user advisor page
-- News page 
-- FAQ page
-- Contacts page
+-Home page
+-Sign in / Sign up page 
+-Attendance and Calendar pages
+-Educational/Content page
+-Personal account for teacher/customer,user/client,user parent/user advisor page
+-News page 
+-FAQ page
+-Contacts page
 
 ## Goals
 * What is the purpose of this project?
@@ -46,25 +46,23 @@ All information will be contained in one platform. This is convenient for both t
 CRM Platform with a simple and user-friendly interface.
 
 ## User Personas
-* teacher/customer
-* student/user/client
-* user parent/user advisor  
+*teacher/customer, student/user/client, user parent/user advisor*  
 
 ## User stories
-Website Users
-- Аs a user , it is inconvenient for me to take a lesson on one platform and then a test on another . And I want the possibility that all these things were in one place in one platform.
+*Website Users
+Аs a user , it is inconvenient for me to take a lesson on one platform and then a test on another . And I want the possibility that all these things were in one place in one platform.
 
-Website Admin
-- During the quarantine, it was difficult to conduct lessons or take a test from students, or check their attendance.It was necessary to conduct lessons on one platform, to test the knowledge of students on the other, it was very inconvenient.In idela it would be to have it all in one place in one platform.
+*Website Admin
+During the quarantine, it was difficult to conduct lessons or take a test from students, or check their attendance.It was necessary to conduct lessons on one platform, to test the knowledge of students on the other, it was very inconvenient.In idela it would be to have it all in one place in one platform.
 
 ## Sitemap, Page descriptions
-- Sign in / Sign up page - Simple registration process.  
-- Attendance and Calendar pages - taking attendance will help to improve client attitude, focus and taking seriously   
-- Educational/Content page - Separate content page makes the understanding process better.  
-- Personal account for teacher/customer,user/client,user parent/user advisor page - taking care of users activities and monitoring increases client efficiency.  
-- News page - opportunity to sale products for customers and finding helpful courses for clients.  
-- FAQ page - About us and sign of developers.  
-- Contacts page - Support system and links.   
+-Sign in / Sign up page - Simple registration process.  
+-Attendance and Calendar pages - taking attendance will help to improve client attitude, focus and taking seriously   
+-Educational/Content page - Separate content page makes the understanding process better.  
+-Personal account for teacher/customer,user/client,user parent/user advisor page - taking care of users activities and monitoring increases client efficiency.  
+-News page - opportunity to sale products for customers and finding helpful courses for clients.  
+-FAQ page - About us and sign of developers.  
+-Contacts page - Support system and links.   
 
 ![sitemap](https://user-images.githubusercontent.com/76391010/154613182-59bf236b-61bf-47ba-adf5-fa9885205e08.png)
 
@@ -79,9 +77,7 @@ Underestimation of time/resource commitment
 On average, we see that students underestimate the amount of time that they themselves will need to invest in the project to move it forward quickly. After all, many of us are already working full-time, and the website design is in addition. All participants in the project should have sufficient time to perform their normal duties. *
 
 ## Mockups, Wireframes
-- Plans page
-![wireframe#1](https://user-images.githubusercontent.com/76391010/155378574-5730866b-8d5f-4590-a29e-1497b454b947.png)
-
+*Put here images of your wireframes*
 
 ## Future iterations
 New features and individuality - that distinguishes us from others is planning and discussing in team, testing and exploring other same projects for that. 
