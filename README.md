@@ -7,7 +7,7 @@
 + **Syrbek Olzhas** (*180103273*)- Backend Developer (GitHub account: *https://github.com/CoffeeAfterWakingUp*)
 
 ## Project
-We are going to create web-platform, that will be helpful for small-medium business at our country. Maybe later, we will choose another idea to implement.
+We are going to create web-platform, that will be helpful for small-medium business at our country.
 Creation of the system "QCRM", for managing customer relationships.
 
 ## Alternatives / Market research
