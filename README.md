@@ -47,7 +47,35 @@ All information will be contained in one platform. This is convenient for both t
 CRM Platform with a simple and user-friendly interface.
 
 ## User Personas
-*teacher/customer, student/user/client, user parent/user advisor*  
+*teacher/customer, student/user/client, user parent/user advisor* 
+
+USER TYPE:    website user(external)
+OCCUPATION:   student
+NAME:         Aibek Zhorabek
+GENDER:       male
+AGE           16
+EDUCATION     school
+LOCATION      ALMATY
+OBJECTIVE     Aibek wants to find everything related to studies (attendance, results,schedules etc.) in one place, in one platform.
+
+USER TYPE:    website user(external)
+OCCUPATION:   teacher
+NAME:         Akerke Serik
+GENDER:       female
+AGE           24
+EDUCATION     University
+LOCATION      ALMATY
+OBJECTIVE     Akerke wants her to be able to conduct a lesson, monitor the students systematically. She wants to see the results, progress ,                   lessons, etc. all on one platform
+
+USER TYPE:    website user(internal)
+OCCUPATION:   admin
+NAME:         Dauren Zhandasov
+GENDER:       male
+AGE           28
+EDUCATION     University
+LOCATION      Nur-Sultan
+OBJECTIVE     Dauren wants to optimize scheduling, find contacts and contact students and teachers and accept new students.
+
 
 ## User stories
 *Website Users
