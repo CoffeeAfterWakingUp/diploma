@@ -10,8 +10,8 @@
 |Week #8|Java services, classes and project structure|Construct and test rest endpoints, as well as begin to create services|Design News Web Page|
 |Week #9|Repositories, Enums, Exceptions|Create new services to support new functionalities|Design Home web page|
 |Week #10|Performing designed Home and web pages|Create new services to support new functionalities|Design user account web page|
-|Week #11|Performing designed User account web page|Create new services to support new functionalities|Design Grades and Shcedule web pages|
-|Week #12|Performing designed Grades and Shcedule web pages|Update and complement services, fix the bugs|Design Attendance and Registation to course web pages|
+|Week #11|Performing designed User account web page|Create new services to support new functionalities|Design Grades and Schedule web pages|
+|Week #12|Performing designed Grades and Shcedule web pages|Update and complement services, fix the bugs|Design Attendance and Course Registation web pages|
 |Week #13|Performing designed Attendance and Registation to course web pages|Finish testing classes|Design Messages web page and Payment web page (maybe)|
 |Week #14|Fixing bugs, correction of errors|Make certain that everything works properly by testing it, and then complete the project|...|
 |Week #15|Project refinements and finishing touches|Defend the project|
