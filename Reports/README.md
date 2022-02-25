@@ -1,7 +1,7 @@
 > This folders will contain your reports
 ## Week by week plan
 |#|Dastan|Syrbek Olzhas|Yerasyl|
-|---|---|---|
+|---|---|---|---|
 |Week #3|Database and Java connection, First Queries|Choose a project and research alternatives|...|
 |Week #4|Create database models|Determine which technologies will be used to build the project's backend|Web concept|
 |Week #5|Create home web page|Set up the project and install dependencies|Strategy (User/Client needs, User personas, elevator pitch)|
