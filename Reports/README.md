@@ -1,7 +1,7 @@
 > This folders will contain your reports
 ## Week by week plan
-|#|Dastan|Syrbek Olzhas|Yerasyl|#Zhomartuly Almas||
-|---|---|---|---|
+|#|Dastan|Syrbek Olzhas|Yerasyl|Zhomartuly Almas||
+|---|---|---|---|---|
 |Week #3|Database and Java connection, First Queries|Choose a project and research alternatives|...|Assign tasks with a deadline to all team members on Jira||
 |Week #4|Create database models|Determine which technologies will be used to build the project's backend|Web concept|Check and rate results. Write SMART of our project||
 |Week #5|Performing empty pages and connecting it |Set up the project and install dependencies|Strategy (User/Client needs, User personas, elevator pitch)||
