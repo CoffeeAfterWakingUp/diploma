@@ -13,5 +13,5 @@
 |Week #11|Performing designed User account web page|Create new services to support new functionalities|Design Grades and Schedule web pages||
 |Week #12|Performing designed Grades and Shcedule web pages|Update and complement services, fix the bugs|Design Attendance and Course Registation web pages||
 |Week #13|Performing designed Attendance and Registation to course web pages|Finish testing classes|Design Messages web page and Payment web page (maybe)|Run user test||
-|Week #14|Fixing bugs, correction of errors|Make certain that everything works properly by testing it, and then complete the project|...|Check and rate results||
-|Week #15|Project refinements and finishing touches|Defend the project||Defend the project|
+|Week #14|Fixing bugs, correction of errors|Make certain that everything works properly by testing it, and then complete the project|Make a defense presentation|Check and rate results||
+|Week #15|Project refinements and finishing touches|Defend the project|Prepare a speech and Defend the project|Defend the project|
