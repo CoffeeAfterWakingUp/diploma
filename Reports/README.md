@@ -7,7 +7,7 @@
 |Week #5|Performing empty pages and connecting it |Set up the project and install dependencies|Strategy (User/Client needs, User personas, elevator pitch)|
 |Week #6|Create Java OOP models|Desing the database and start creating tables|Wireframes and Mockups of Sign In & Sign Up page|
 |Week #7|Java standard and custom interfaces|Establish a connection to database and organize data according to a database model|Design FAQ Web page and Contacts web page|
-|Week #8|Java services, classes and project structure|Construct and test rest endpoints, as well as begin to create services|Design News Web Page|
+|Week #8|Java services, classes and project structure|Construct and test rest endpoints, as well as begin to create services|Creating the wireframe and mockup of the News Page|
 |Week #9|Repositories, Enums, Exceptions|Create new services to support new functionalities|Design Home web page|
 |Week #10|Performing designed Home and web pages|Create new services to support new functionalities|Design user account web page|
 |Week #11|Performing designed User account web page|Create new services to support new functionalities|Design Grades and Schedule web pages|
