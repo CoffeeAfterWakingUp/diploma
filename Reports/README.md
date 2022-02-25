@@ -2,8 +2,8 @@
 ## Week by week plan
 |#|Dastan|Syrbek Olzhas|Yerasyl|Zhomartuly Almas|
 |---|---|---|---|---|
-|Week #3|Database and Java connection, First Queries|Choose a project and research alternatives|...|||
-|Week #4|Create database models|Determine which technologies will be used to build the project's backend|Web concept|||
+|Week #3|Database and Java connection, First Queries|Choose a project and research alternatives|...|Project marketing strategy. Project background||
+|Week #4|Create database models|Determine which technologies will be used to build the project's backend|Web concept|Ideal and Current conditions||
 |Week #5|Performing empty pages and connecting it |Set up the project and install dependencies|Strategy (User/Client needs, User personas, elevator pitch)|Assign tasks with a deadline to all team members on Jira|
 |Week #6|Create Java OOP models|Desing the database and start creating tables|Wireframes and Mockups of Sign In & Sign Up page|Help to make mockups|Check and rate results. Write SMART of our project|
 |Week #7|Java standard and custom interfaces|Establish a connection to database and organize data according to a database model|Design FAQ Web page and Contacts web page|Help to make FAQ Web page. Check process.|
