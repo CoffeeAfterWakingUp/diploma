@@ -19,7 +19,7 @@ Research alternatives
 
 
 ## Technologies
-- Backend: Java(Spring Boot)
+- Backend: Java(Spring Boot), PostgreSQL
 - Frontend: HTML, CSS, JS
 
 ## Pages / Activities 
