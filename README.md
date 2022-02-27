@@ -1,7 +1,7 @@
 # CSS 410 Research tools and methods
 ## Team members
 + **Zhomartuly Almas** (*180107231*)- UI / UX Designer (GitHub account: *https://github.com/almasjomartuly*)
-+ **Bimende Yeleukenov** (*180107211*) - Backend Developer (GitHub account:https://github.com/BimendeYeleukenov)
++ **Bimende Yeleukenov** (*180107211*) - FullStack developer (GitHub account:https://github.com/BimendeYeleukenov)
 + **Muratkaliuly Yerasyl** (*180107144*) - UI/UX designer (Github account: https://github.com/B0YMAN1)
 + **Baibolatov Dastan** (*180107131*)- FullStack developer (GitHub account: *https://github.com/180107131*)
 + **Syrbek Olzhas** (*180103273*)- Backend Developer (GitHub account: *https://github.com/CoffeeAfterWakingUp*)
