@@ -11,3 +11,13 @@ public class DiplomaProjectGeneticCodeApplication {
     }
 
 }
+
+
+/*
+* #TODO:
+*   - Registration And Sign in services
+*   - Sending mail and confirming it
+*
+*
+*
+* */
