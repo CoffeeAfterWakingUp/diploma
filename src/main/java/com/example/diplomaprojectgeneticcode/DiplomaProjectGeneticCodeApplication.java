@@ -9,5 +9,5 @@ public class DiplomaProjectGeneticCodeApplication {
     public static void main(String[] args) {
         SpringApplication.run(DiplomaProjectGeneticCodeApplication.class, args);
     }
-
+    
 }
