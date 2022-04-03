@@ -1,4 +1,4 @@
-package com.example.diplomaprojectgeneticcode.service;
+package com.example.diplomaprojectgeneticcode.service.interfaces;
 
 import com.example.diplomaprojectgeneticcode.entity.User;
 
@@ -11,5 +11,7 @@ public interface UserService {
     User create(User user);
     User update(User user, UUID id);
     boolean delete(UUID id);
+    void enableUser(UUID id);
+    User getUserByEmail(String email);
 
 }

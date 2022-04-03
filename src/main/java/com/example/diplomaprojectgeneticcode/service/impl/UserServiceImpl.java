@@ -2,14 +2,10 @@ package com.example.diplomaprojectgeneticcode.service.impl;
 
 import com.example.diplomaprojectgeneticcode.entity.User;
 import com.example.diplomaprojectgeneticcode.repo.UserRepo;
-import com.example.diplomaprojectgeneticcode.service.UserService;
-import com.example.diplomaprojectgeneticcode.util.PasswordEncoder;
+import com.example.diplomaprojectgeneticcode.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
@@ -18,20 +14,13 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
-import static com.example.diplomaprojectgeneticcode.util.Constant.USER_NOT_FOUND_MSG;
-
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService, UserDetailsService {
+public class UserServiceImpl implements UserService {
 
     private final UserRepo userRepo;
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepo.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
-    }
 
     @Override
     public List<User> getAll() {
@@ -61,7 +50,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         if(user == null) {
             throw new RuntimeException("User is Null");
         }
-        user.setPassword(PasswordEncoder.encode(user.getPassword()));
         User newUser = userRepo.save(user);
         log.info("Created user: {}", newUser);
         return newUser;
@@ -81,5 +69,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userRepo.deleteById(id);
         log.info("User is deleted");
         return true;
+    }
+
+    @Override
+    public void enableUser(UUID id) {
+        userRepo.enableUser(id);
+    }
+
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepo.findByEmail(email).orElseThrow();
     }
 }

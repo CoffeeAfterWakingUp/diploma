@@ -1,17 +1,19 @@
 package com.example.diplomaprojectgeneticcode.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "review")
-@Data
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Review {
@@ -20,14 +22,15 @@ public class Review {
     @Type(type="pg-uuid")
     private UUID id;
     private String msg;
-    private Double rating;
+    private Integer rating;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Course course;
-    private Timestamp postDate;
+
+    private LocalDateTime postDate;
 
 
 }

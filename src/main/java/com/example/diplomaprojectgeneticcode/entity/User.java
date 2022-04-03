@@ -1,10 +1,8 @@
 package com.example.diplomaprojectgeneticcode.entity;
 
-import com.example.diplomaprojectgeneticcode.enums.Role;
 import com.example.diplomaprojectgeneticcode.enums.Status;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,10 +13,14 @@ import java.util.*;
 
 @Entity
 @Table(name = "user_account")
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
+//@ToString
+@EqualsAndHashCode
 @NoArgsConstructor
-public class User implements UserDetails {
+@AllArgsConstructor
+@Builder
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type="pg-uuid")
@@ -34,45 +36,57 @@ public class User implements UserDetails {
 
     private String image;
 
+    @ManyToMany
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    @JsonIgnore
+    private Set<Role> roles = new HashSet<>();
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority("USER"));
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JsonIgnore
+    private List<VerificationToken> tokens = new ArrayList<>();
+
+    private Boolean enabled;
+
+    private Boolean locked;
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JsonIgnore
+    private List<Review> reviews = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "teachers", cascade = CascadeType.MERGE)
+    @JsonIgnore
+    private Set<Course> courses = new HashSet<>();
+
+    public void addCourseToTeacher(Course course) {
+        if(courses.contains(course)) {
+            return;
+        }
+        courses.add(course);
     }
 
-    @Override
-    public String getUsername() {
-        return this.email;
+    public User(String name, String surname, String email, String password, String biography, Status status, String image, Boolean enabled, Boolean locked) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.biography = biography;
+        this.status = status;
+        this.image = image;
+        this.enabled = enabled;
+        this.locked = locked;
     }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
-//    @Enumerated(EnumType.STRING)
-//    private Role role;
-
-//    @OneToMany(
-//            mappedBy = "user",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true
-//    )
-//    private List<Review> reviews = new ArrayList<>();
 }
 
 

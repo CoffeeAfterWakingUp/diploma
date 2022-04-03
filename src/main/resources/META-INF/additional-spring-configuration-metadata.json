@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "api.host.baseUrl",
+      "type": "java.lang.String",
+      "description": "Api host for rest template's request"
+    }
+  ]
+}

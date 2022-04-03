@@ -1,8 +1,6 @@
 package com.example.diplomaprojectgeneticcode.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -10,7 +8,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "course_video")
-@Data
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 public class CourseVideo {

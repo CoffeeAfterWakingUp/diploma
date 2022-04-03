@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+    <link id="mystylesheet" rel="stylesheet" th:href="@{/css/signUpLight.css}">
+</head>
+<body>
+<div class="leftPanel" id="leftP">
+    <div class="logoClass" id="logoClass">
+
+    </div>
+    <div class="signINClass"><a class="signIN" th:href="@{/signIn}">Sign In</a></div>
+
+    <div class="welcomeText">
+        <span class="welcome">Welcome to our platform</span>
+        <span class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. </span>
+    </div>
+
+    <form th:action="@{/signUp}" method="post" th:object="${registerRequest}">
+        <div class="firstNameClass">
+            <input type="text" class="firstNameField" name="name" th:field="*{name}"/>
+            <span class="firstName">First name</span>
+        </div>
+
+
+        <div class="emailClass">
+            <input type="email" class="emailField" th:field="*{email}"/>
+            <span class="email">Email</span>
+        </div>
+
+        <div class="passwordClass">
+            <input type="password" class="passwordField" th:field="*{password}"/>
+            <span class="password">Password</span>
+            <div class="passwordView">показать</div>
+        </div>
+
+        <div class="confirmClass">
+            <input type="password" class="confirmPfield"/>
+            <span class="confirmP">Confirm Password</span>
+            <div class="passwordView">показать</div>
+        </div>
+
+        <div class="signUpClass">
+            <button class="signUpButton" value="signUp" type="submit">Sign Up</button>
+        </div>
+        <span class="signUp"></span>
+        <div class="signUpViaClass">
+            <a href="ForgotPassword.html">Forgot Password</a>
+            <div class="name"></div>
+            <div class="name"></div>
+        </div>
+
+        <div class="googleClass">
+
+            <span class="google">Google</span>
+        </div>
+    </form>
+
+</div>
+<div class="rightPanel">
+    <div class="DayOrNight">
+        <img src="" alt="">
+        <div class="container">
+            <label class="switch"><input type="checkbox" id="myCheckbox" onclick="myFunction()"/>
+                <div></div>
+            </label>
+        </div>
+        <img src="" alt="">
+
+    </div>
+    <div class="rightPanelPh1">
+    </div>
+    <div class="rightPanelPh2">
+    </div>
+</div>
+
+</body>
+</html>
+<br/>
+<br/>
+<script>
+    function myFunction() {
+      const sheet = document.getElementById('mystylesheet');
+      const chechBox = document.getElementById("myCheckbox").checked;
+      if (chechBox === true) {
+        sheet.href = "css/signUpDark.css";
+      }
+      else{
+        sheet.href = "css/signUpLight.css";
+      }
+      // document.getElementById('mystylesheet').href = "css/signUpDark.css";
+    }
+</script>

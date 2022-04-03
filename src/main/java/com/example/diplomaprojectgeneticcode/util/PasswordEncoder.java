@@ -4,6 +4,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.security.SecureRandom;
 
+/*
+*  #TODO maybe delete this class, cause currently using other implementation
+*
+*
+* */
 public class PasswordEncoder {
     private static final int STRENGTH = 10;
 

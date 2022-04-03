@@ -2,7 +2,7 @@ package com.example.diplomaprojectgeneticcode.rest;
 
 import com.example.diplomaprojectgeneticcode.entity.User;
 import com.example.diplomaprojectgeneticcode.http.Response;
-import com.example.diplomaprojectgeneticcode.service.UserService;
+import com.example.diplomaprojectgeneticcode.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
