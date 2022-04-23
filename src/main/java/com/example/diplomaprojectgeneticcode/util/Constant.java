@@ -14,6 +14,17 @@ public final class Constant {
             "Thank you for signing up to QCRM, " +
             "please activate your account using below url: " +
             "http://localhost:8081/api/auth/confirm-account/%s";
+    public static final String USER_SESSION = "currentUser";
+
+    public static final String SIGN_IN_PAGE = "signIn";
+    public static final String SIGN_UP_PAGE = "signUp";
+    public static final String DASHBOARD_PAGE = "dashboard";
+    public static final String COURSE_REG_PAGE = "сourseRegistration";
+    public static final String COURSE_CURRICULUM_PAGE = "courseCurriculum";
+    public static final String COURSE_CURRICULUM_DASHBOARD_PAGE = "courseCurriculumDashboard";
+    public static final String STUDENT_GRADES_PAGE = "StudentGrades";
+    public static final String STUDENT_ATTENDANCE_PAGE = "StudentAttendance";
+    public static final String STUDENT_MY_COURSES_PAGE = "StudentMyCourses";
 
 
 }

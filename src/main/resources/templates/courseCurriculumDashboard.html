@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curriculum Content</title>
+    <div th:replace="fragments/headLinks :: headLinks"></div>
+    <link rel="stylesheet" th:href="@{/css/curriculumDashboard.css}">
+</head>
+<body>
+<div class="main h-100">
+    <div class="content_blog">
+        <div th:replace="fragments/header :: header (courseTitle=${course.title})"></div>
+        <div class="icontainer container-fluid">
+            <div class="cont_body">
+                <div class="curriculum">
+                    <div class="curriculum_header">
+                        <a class="btn btn-outline-light text-dark shadow-sm mb-2" th:href="@{/my-courses/}" href="#">
+                            <img th:src="@{/images/home.png}" alt="" src="#" width="25" height="25">
+                        </a>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row row-cols-2">
+                            <div class="col-3">
+                                <div class="content_links">
+                                    <th:block th:each="section : ${sections}">
+                                        <p class="section_name" th:text="${#strings.toUpperCase(section.name)}"></p>
+                                        <div class="course_list">
+                                            <th:block th:each="cont : ${section.contents}">
+                                                <a class="course_list__item text-decoration-none"
+                                                   th:classappend="${cont.id == content.id ? 'checked' : ''}"
+                                                   th:href="@{/my-courses/{courseId}/curriculum/learn/{contentId}(courseId=${cont.courseId}, contentId=${cont.id})}"
+                                                   href="#" th:if="${cont.enabled}">
+                                                    <div class="left_side">
+                                                        <th:block th:if="${cont.isUserCompleted}">
+                                                            <img th:src="@{/images/check.png}" alt="" width="24"
+                                                                 height="24"
+                                                                 src="#">
+                                                        </th:block>
+                                                        <th:block th:unless="${cont.isUserCompleted}">
+                                                            <div class="circle"></div>
+                                                        </th:block>
+                                                    </div>
+                                                    <div class="right_side">
+                                                        <div class="course_details">
+
+                                                            <img th:src="@{/images/videoicon.svg}" alt=""
+                                                                 th:if="${cont.type == 'VIDEO'}">
+                                                            <img th:src="@{/images/article.png}" alt=""
+                                                                 th:unless="${cont.type == 'VIDEO'}">
+
+                                                            <p th:text="${cont.name}">Hi (0:43)</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </th:block>
+                                        </div>
+                                    </th:block>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="content">
+                                    <p th:text="${content.sectionName + ' / ' + content.name}" class="navigation"></p>
+                                    <div class="row justify-content-between">
+                                        <div class="col-10">
+                                            <div class="content_details">
+                                                <p th:text="${content.name}">Hi (0:43)</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <th:block th:if="${content.isUserCompleted}">
+                                                <a class="completed text-decoration-none" href="#"
+                                                   th:href="@{/my-courses/{courseId}/{contentId}(courseId=${content.courseId}, contentId=${content.id}, isCompleted=${!content.isUserCompleted()})}">
+                                                    Completed
+                                                </a>
+                                            </th:block>
+                                            <th:block th:unless="${content.isUserCompleted}">
+                                                <a class="start text-decoration-none" href="#"
+                                                   th:href="@{/my-courses/{courseId}/{contentId}(courseId=${content.courseId}, contentId=${content.id}, isCompleted=${!content.isUserCompleted()})}"
+                                                   +>
+                                                    Complete
+                                                </a>
+                                            </th:block>
+                                        </div>
+                                    </div>
+
+                                    <p th:text="${'Created At: ' + content.createdAt}"
+                                       th:if="${content.updatedAt} == null" class="content_date"></p>
+                                    <p th:text="${'Updated At: ' + content.updatedAt}"
+                                       th:unless="${content.updatedAt} == null" class="content_date"></p>
+
+                                    <div class="row">
+                                        <div class="col content_item">
+                                            <th:block th:if="${content.type == 'VIDEO'}">
+                                                <video class="video" controls>
+                                                    <source th:src="@{${'/files/' + content.contentUrl}}"
+                                                            type="video/mp4" src="#">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            </th:block>
+                                            <th:block th:unless="${content.type == 'VIDEO'}">
+                                                <a class="btn btn-primary"
+                                                   th:href="@{${'/api/file/download/' + content.contentUrl}}" href="#">
+                                                    Download
+                                                </a>
+                                            </th:block>
+
+
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                                since the 1500s, when an unknown printer took a galley of type and
+                                                scrambled it to make a type specimen book. It has survived not only five
+                                                centuries, but also the leap into electronic typesetting, remaining
+                                                essentially unchanged. It was popularised in the 1960s with the release
+                                                of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                                with desktop publishing software like Aldus PageMaker including versions
+                                                of Lorem Ipsum.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>

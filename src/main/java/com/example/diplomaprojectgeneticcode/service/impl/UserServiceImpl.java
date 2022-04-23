@@ -1,6 +1,8 @@
 package com.example.diplomaprojectgeneticcode.service.impl;
 
+import com.example.diplomaprojectgeneticcode.entity.StudentContent;
 import com.example.diplomaprojectgeneticcode.entity.User;
+import com.example.diplomaprojectgeneticcode.repo.StudentContentRepo;
 import com.example.diplomaprojectgeneticcode.repo.UserRepo;
 import com.example.diplomaprojectgeneticcode.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
 
     private final UserRepo userRepo;
+    private final StudentContentRepo studentContentRepo;
 
 
     @Override
@@ -80,5 +83,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByEmail(String email) {
         return userRepo.findByEmail(email).orElseThrow();
+    }
+
+    @Override
+    public List<StudentContent> getGradesOfStudent(UUID studentId, UUID courseId) {
+        return studentContentRepo.getStudentContentsByStudentAndContent(studentId, courseId);
+    }
+
+    @Override
+    public List<StudentContent> getAttendanceOfStudent(UUID studentId, UUID courseId) {
+        return studentContentRepo.getStudentContentsByStudentAndContent(studentId, courseId);
     }
 }

@@ -1,0 +1,96 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    display: flex;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1em;
+    border-bottom: 2px solid white;
+    /*width: 20%;*/
+}
+
+th {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #062F4F;
+    background: #dddddd8c;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+td {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.odd {
+    background: white;
+}
+
+.even {
+    background: #dddddd8c;
+}
+
+.circular-progress {
+    position: relative;
+    height: 8em;
+    width: 8em;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-top: 5em;
+    background: #4d5bf9;
+}
+.circular-progress:before {
+    content: "";
+    position: absolute;
+    height: 75%;
+    width: 75%;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+.value-container {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2em;
+}
+
+
+
+.circular-progress .fail {
+    color: red;
+}
+
+
+
+.attended .value-container {
+    color: #50962F;
+}
+
+.absence .value-container {
+    color: rgba(255, 0, 0, 0.77);
+}
+
+.progressBarTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5em;
+    font-size: 18px;
+    margin-top: 1em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}

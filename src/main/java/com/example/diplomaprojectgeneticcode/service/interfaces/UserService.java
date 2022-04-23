@@ -1,5 +1,6 @@
 package com.example.diplomaprojectgeneticcode.service.interfaces;
 
+import com.example.diplomaprojectgeneticcode.entity.StudentContent;
 import com.example.diplomaprojectgeneticcode.entity.User;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public interface UserService {
     void enableUser(UUID id);
     User getUserByEmail(String email);
 
+    List<StudentContent> getGradesOfStudent(UUID studentId, UUID courseId);
+
+    List<StudentContent> getAttendanceOfStudent(UUID studentId, UUID courseId);
 }

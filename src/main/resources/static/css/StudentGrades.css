@@ -1,0 +1,45 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    display: flex;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1em;
+    border-bottom: 2px solid white;
+    width: 20%;
+}
+
+th {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #062F4F;
+    background: #dddddd8c;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+td {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.odd {
+    background: white;
+}
+
+.even {
+    background: #dddddd8c;
+}

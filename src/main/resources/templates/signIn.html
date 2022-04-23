@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS only -->
-  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-  <link th:href="@{/css/style.css}" rel="stylesheet">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
 <div class="container">
-  <div class="row">
-    <!-- here will be left side of sign in page -->
-    <div class="col-7 content-left">
-      <div class="row">
-        <div class="col-3 logo"><img th:src="@{/images/logo/logo-white.jpg}" alt="logo" id="logo" width="130" height="85"></div>
-        <div class="col-9 d-flex justify-content-end"><a href="#" class="btnsign">Sign Up</a></div>
-      </div>
-      <div class="container pe-5">
-        <div class="row">
-          <div class="col login">
-            <h1>Log in to your account</h1>
-            <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eligendi nulla esse
-            </p>
-          </div>
+    <div class="row">
+        <!-- here will be left side of sign in page -->
+        <div class="col-7 content-left">
+            <div class="row">
+                <div class="col-3 logo"><img th:src="@{/images/logo/logo-white.jpg}" alt="logo" id="logo" width="130"
+                                             height="85"></div>
+                <div class="col-9 d-flex justify-content-end"><a href="#" class="btnsign">Sign Up</a></div>
+            </div>
+            <div class="container pe-5">
+                <div class="row">
+                    <div class="col login">
+                        <h1>Log in to your account</h1>
+                        <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro eligendi nulla
+                            esse
+                        </p>
+                    </div>
+                </div>
+
+                <span th:if="${message != null}" th:text="${message}"></span>
+
+                <form th:action="@{/signIn}" class="d-grid form" method="post" th:object="${loginRequest}">
+                    <div class="mt-2 mb-2">
+                        <label for="email" class="emailabel">Email *</label>
+                        <input type="email" class="form-control" id="email" name="email" th:field="*{email}">
+                    </div>
+                    <div class="mb-2">
+                        <label for="pwd" class="emailabel">Password *</label>
+                        <input type="password" class="form-control" id="pwd" name="password" th:field="*{password}">
+                    </div>
+                    <div class="form-check mb-2">
+                        <label class="form-check-label rememberme mb-3">
+                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                        </label>
+                        <a href="#" class="fgtpswd">Forgot password ?</a>
+                    </div>
+                    <button type="submit" class="btn btn-block btnsbmt">Sign in</button>
+                </form>
+
+                <div class="strike mt-3">
+                    <span>or Sign in via</span>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-6 d-flex justify-content-start fcb">
+                        <a href=""> <img th:src="@{/images/svg/facebook.svg}" alt="" width="16" height="16">
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+
+                    <div class="col-6 d-flex justify-content-end ggl">
+                        <a href=""> <img th:src="@{/images/svg/google.svg}" alt="" width="16" height="16">
+                            <span>Google</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <span th:if="${message != null}" th:text="${message}"></span>
-        <span th:text="${session.currentUser}"></span>
-
-        <form th:action="@{/signIn}" class="d-grid form" method="post" th:object="${loginRequest}">
-          <div class="mt-2 mb-2">
-            <label for="email" class="emailabel">Email *</label>
-            <input type="email" class="form-control" id="email"  name="email" th:field="*{email}">
-          </div>
-          <div class="mb-2">
-            <label for="pwd" class="emailabel">Password *</label>
-            <input type="password" class="form-control" id="pwd" name="password" th:field="*{password}">
-          </div>
-          <div class="form-check mb-2">
-            <label class="form-check-label rememberme mb-3">
-              <input class="form-check-input" type="checkbox" name="remember"> Remember me
-            </label>
-            <a href="#" class="fgtpswd">Forgot password ?</a>
-          </div>
-          <button type="submit" class="btn btn-block btnsbmt">Sign in</button>
-        </form>
-
-        <div class="strike mt-3">
-          <span>or Sign in via</span>
+        <div class="col-5 content-right">
+            <div class="row">
+                <div class="col d-flex justify-content-end mt-4">
+                    <button id="toggle-theme-btn">
+                        <img th:src="@{/images/moon.png}" alt="" id="toggle-theme-image" width="15px">
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center rimage">
+                    <img th:src="@{/images/6461-removebg-preview.png}" alt="" width="420">
+                </div>
+            </div>
         </div>
-
-        <div class="row mt-5">
-          <div class="col-6 d-flex justify-content-start fcb">
-            <a href=""> <img th:src="@{/images/svg/facebook.svg}" alt="" width="16" height="16">
-              <span>Facebook</span>
-            </a>
-          </div>
-
-          <div class="col-6 d-flex justify-content-end ggl">
-            <a href=""> <img th:src="@{/images/svg/google.svg}" alt="" width="16" height="16">
-              <span>Google</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
     </div>
-
-    <div class="col-5 content-right">
-      <div class="row">
-        <div class="col d-flex justify-content-end mt-4">
-          <button id="toggle-theme-btn">
-            <img th:src="@{/images/moon.png}" alt="" id="toggle-theme-image" width="15px">
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex justify-content-center rimage">
-          <img th:src="@{/images/6461-removebg-preview.png}" alt="" width="420">
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- JavaScript Bundle with Popper -->

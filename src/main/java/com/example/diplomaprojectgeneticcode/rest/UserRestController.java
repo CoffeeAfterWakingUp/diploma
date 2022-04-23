@@ -1,12 +1,17 @@
 package com.example.diplomaprojectgeneticcode.rest;
 
+import com.example.diplomaprojectgeneticcode.dto.StudentContentDTO;
+import com.example.diplomaprojectgeneticcode.dto.UserDTO;
 import com.example.diplomaprojectgeneticcode.entity.User;
-import com.example.diplomaprojectgeneticcode.http.Response;
+import com.example.diplomaprojectgeneticcode.dto.ResponseDTO;
+import com.example.diplomaprojectgeneticcode.mapper.StudentContentMapper;
+import com.example.diplomaprojectgeneticcode.mapper.UserMapper;
 import com.example.diplomaprojectgeneticcode.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 import static com.example.diplomaprojectgeneticcode.util.Constant.SUCCESS;
@@ -18,40 +23,51 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping("api/users")
 @RequiredArgsConstructor
-public class UserRestController {
+public class UserRestController extends AbstractRestController {
 
     private final UserService userService;
+    private final UserMapper userMapper;
+    private final StudentContentMapper studentContentMapper;
 
     @GetMapping(value = "", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<?>> getAll() {
-        return ResponseEntity.ok(
-                Response.builder()
-                        .timestamp(now())
-                        .status(OK)
-                        .statusCode(OK.value())
-                        .message(SUCCESS)
-                        .data(userService.getAll())
-                        .build()
-        );
+    public ResponseEntity<ResponseDTO<List<User>>> getAll() {
+        return successOK(userService.getAll());
     }
 
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<?>> getById(@PathVariable UUID id) {
-        return ResponseEntity.ok(
-                Response.builder()
-                        .timestamp(now())
-                        .status(OK)
-                        .statusCode(OK.value())
-                        .message(SUCCESS)
-                        .data(userService.getById(id))
-                        .build()
+    public ResponseEntity<ResponseDTO<User>> getById(@PathVariable UUID id) {
+        return successOK(userService.getById(id));
+    }
+
+    @GetMapping(value = "/username/{username}")
+    public ResponseEntity<ResponseDTO<UserDTO>> getByUsername(@PathVariable String username) {
+        return successOK(userMapper.toDto(userService.getUserByEmail(username)));
+    }
+
+    @GetMapping("/{studentId}/{courseId}/grades")
+    public ResponseEntity<ResponseDTO<List<StudentContentDTO>>> getGradesOfStudent(@PathVariable UUID studentId,
+                                                                                   @PathVariable UUID courseId) {
+        return successOK(
+                studentContentMapper.toDto(
+                        userService.getGradesOfStudent(studentId, courseId)
+                )
+        );
+    }
+
+    @GetMapping("/{studentId}/{courseId}/attendance")
+    public ResponseEntity<ResponseDTO<List<StudentContentDTO>>> getAttendanceOfStudent(@PathVariable UUID studentId,
+                                                                                       @PathVariable UUID courseId) {
+        return successOK(
+                studentContentMapper.toDto(
+                        userService.getAttendanceOfStudent(studentId, courseId)
+                )
         );
     }
 
     @PostMapping(value = "", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<?>> createUser(@RequestBody User user) {
+    public ResponseEntity<ResponseDTO<?>> createUser(@RequestBody User user) {
         return ResponseEntity.ok(
-                Response.builder()
+                ResponseDTO.builder()
                         .timestamp(now())
                         .status(CREATED)
                         .statusCode(CREATED.value())
@@ -62,9 +78,9 @@ public class UserRestController {
     }
 
     @PutMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<?>> updateUser(@PathVariable UUID id, @RequestBody User user) {
+    public ResponseEntity<ResponseDTO<?>> updateUser(@PathVariable UUID id, @RequestBody User user) {
         return ResponseEntity.ok(
-                Response.builder()
+                ResponseDTO.builder()
                         .timestamp(now())
                         .status(OK)
                         .statusCode(OK.value())
@@ -75,9 +91,9 @@ public class UserRestController {
     }
 
     @DeleteMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<?>> deleteUser(@PathVariable UUID id) {
+    public ResponseEntity<ResponseDTO<?>> deleteUser(@PathVariable UUID id) {
         return ResponseEntity.ok(
-                Response.builder()
+                ResponseDTO.builder()
                         .timestamp(now())
                         .status(OK)
                         .statusCode(OK.value())

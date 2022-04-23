@@ -11,7 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"course"})
 @AllArgsConstructor
 @NoArgsConstructor
 public class CourseVideo {
@@ -23,8 +23,16 @@ public class CourseVideo {
 
     private String videoUrl;
 
-    @OneToOne(mappedBy = "promoVideo")
-    private Course course;
+    private String title;
+
+    private Integer duration;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Content content;
+
+
+
+
 
 
 

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+
+<div class="header" th:fragment="header (courseTitle)">
+    <h1 class="page_title" th:text="${courseTitle}">Java Programming</h1>
+    <div class="header_menu">
+        <div class="cart">
+            <img src="#" th:src="@{/images/headercart.svg}" alt="">
+        </div>
+        <div class="dashboard_type">
+            Dashboard for teachers
+        </div>
+        <div class="user">
+            <div class="user_profile">
+                <img src="#" th:src="@{/images/userprofile.png}" alt="">
+            </div>
+            <div class="user_name">User Name</div>
+            <button class="user_details_button">
+                <img src="#" th:src="@{/images/selectArrow.svg}" alt="">
+            </button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

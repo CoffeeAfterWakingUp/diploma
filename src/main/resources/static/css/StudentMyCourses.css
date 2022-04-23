@@ -1,0 +1,98 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    display: flex;
+}
+
+.search_input {
+    background-color: #FFFFFF;
+    border: 1px solid #062F4F;
+    border-radius: 20px;
+    width: 280px;
+    height: 40px;
+    padding-left: 26px;
+    background-image: url("../images/search.svg");
+    background-repeat: no-repeat;
+    background-position: center right 27px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    margin-top: 1em;
+}
+.search_input::placeholder {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.course_list {
+    margin-top: 2em;
+    height: 100%;
+}
+.course_card {
+    display: flex;
+    margin-bottom: 1em;
+    align-items: center;
+    background: white;
+    padding: 1em;
+    border-radius: 10px;
+}
+.course_card:hover {
+    border: 1px solid #062F4F;
+}
+.course_card .course_img {
+    width: 157px;
+    height: 100px;
+    margin-right: 1em;
+}
+.course_img img {
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+    background-color: darkgray;
+}
+
+.course_info {
+
+}
+.course_info_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.course_name {
+    /*width: 80%;*/
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #062F4F;
+    text-decoration: none;
+}
+
+.course_info_body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 163.42%;
+    color: #666666;
+}
+.author {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 163.42%;
+    color: rgba(6, 47, 79, 0.75);
+}

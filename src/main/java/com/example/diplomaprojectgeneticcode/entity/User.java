@@ -3,6 +3,9 @@ package com.example.diplomaprojectgeneticcode.entity;
 import com.example.diplomaprojectgeneticcode.enums.Status;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.NaturalId;
+import org.hibernate.annotations.NaturalIdCache;
 import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,7 +30,10 @@ public class User {
     private UUID id;
     private String name;
     private String surname;
+
+
     private String email;
+
     private String password;
     private String biography;
 
@@ -69,6 +75,17 @@ public class User {
     @JsonIgnore
     private Set<Course> courses = new HashSet<>();
 
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<CourseStudent> courseStudents = new ArrayList<>();
+
+    @OneToMany(
+            mappedBy = "student",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<StudentContent> contents = new ArrayList<>();
+
     public void addCourseToTeacher(Course course) {
         if(courses.contains(course)) {
             return;
@@ -86,6 +103,10 @@ public class User {
         this.image = image;
         this.enabled = enabled;
         this.locked = locked;
+    }
+
+    public String getFullName() {
+        return this.getName() + " " + this.getSurname();
     }
 }
 

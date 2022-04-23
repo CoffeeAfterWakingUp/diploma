@@ -21,7 +21,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type="pg-uuid")
     private UUID id;
-    private String msg;
+    private String message;
     private Integer rating;
 
     @ManyToOne(fetch = FetchType.LAZY)

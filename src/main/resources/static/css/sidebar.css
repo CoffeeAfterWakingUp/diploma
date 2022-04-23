@@ -1,0 +1,122 @@
+/*SIDEBAR*/
+.sidebar {
+    width: 18%;
+    color: #fff;
+    padding-top: 25px;
+    background: #062F4F;
+}
+.logo {
+    margin-bottom: 30px;
+}
+.logo img {
+    cursor: pointer;
+}
+.logo {
+    width: 182px;
+    height: 69px;
+    background: url("../images/dark.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.main_menu {
+}
+.menu_title {
+    /*font-family: 'Expletus Sans', sans-serif;*/
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+    margin-left: 30px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+.menu_list {
+    margin-bottom: 20px;
+}
+.menu_item {
+    height: 60px;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+    font-family: 'Expletus Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #CCD2E3;
+    padding-left: 5px;
+}
+.menu_item.chosen {
+    color: white;
+    background: #104A8B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.menu_item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.menu_item:hover {
+    background: rgba(16, 74, 139, 0.24);
+}
+.notification {
+    position: absolute;
+    right: 5px;
+    width: 24px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #CF3A59;
+    border-radius: 10px;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+.menu_item a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+}
+
+.log_out {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+    color: #E6E6E6;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    bottom: 30px;
+    font-family: "Montserrat", sans-serif;
+}
+.log_out img {
+    margin-right: 10px;
+}
+
+.log_out a {
+    text-decoration: none;
+    color: white;
+}

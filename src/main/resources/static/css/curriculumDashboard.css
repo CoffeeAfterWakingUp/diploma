@@ -1,0 +1,302 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    display: flex;
+}
+
+.content_blog {
+    width: 100%;
+}
+
+.page_title {
+    margin-left: 2em;
+}
+
+.header_menu {
+    width: auto;
+}
+
+.content_links {
+    /*margin-top: 2em;*/
+}
+
+.section_name {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 2em;
+    /*margin-left: 30px;*/
+}
+
+.course_types {
+    display: flex;
+}
+.course_types .course_type {
+    background: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 26px;
+    color: #062F4F;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 43px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 10px 10px 0px;
+}
+.course_types .course_type.top_courses {
+    background-color: rgb(99, 100, 121);
+    border-radius: 10px 0px 0px 10px;
+    color: white !important;
+}
+.search_course {
+    float: right;
+    margin-bottom: 30px;
+}
+.search_input {
+    background-color: #FFFFFF;
+    border: 1px solid #062F4F;
+    border-radius: 20px;
+    width: 297px;
+    height: 45px;
+    padding-left: 26px;
+    background-image: url("../images/search.svg");
+    background-repeat: no-repeat;
+    background-position: center right 27px;
+
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 32px;
+}
+.search_input::placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.25);
+}
+.cont_body {
+    background: #F0F7FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+.curriculum {
+    width: 95%;
+}
+.curriculum_header {
+    border-bottom: 0;
+    margin-left: 0.5em;
+}
+.curriculum_header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    color: #062F4F;
+}
+.course_card {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+.course_img {
+    width: 500px;
+    height: 300px;
+}
+.course_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.course_info {
+    width: 55%;
+    margin-left: 40px;
+}
+.course_info p:first-child {
+
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 38px;
+    color: #062F4F;
+}
+.course_info p:last-child {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 26px;
+    color: #062F4F;
+}
+.course_list {
+
+}
+
+.course_description {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 26px;
+    color: #062F4F;
+}
+
+.course_list__item {
+    margin-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background: rgba(196, 196, 196, 0.5);
+    cursor: pointer;
+    text-decoration: none;
+}
+.course_list__item.checked {
+    background: #ffffff;
+    border: 1px solid #062F4F;
+}
+.left_side {
+    width: 60px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid rgba(6, 47, 79, 0.5);
+}
+.left_side .circle {
+    border: 2px solid rgba(6, 47, 79, 1);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.right_side {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.course_details {
+    display: flex;
+    margin-left: 12px;
+    align-items: center;
+}
+.course_details img {
+    width: 25px;
+    height: 20px;
+}
+.course_details p {
+    margin: 0 0 0 10px;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    color: #062F4F;
+}
+
+.content {
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+.navigation {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 26px;
+    color: #0d6efd;
+    text-decoration-line: underline;
+}
+
+.content_details {
+    display: flex;
+    align-items: center;
+}
+.content_details img {
+    width: 50px;
+    height: 25px;
+}
+.content_details p {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 26px;
+    color: #062F4F;
+}
+
+.content_date {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 26px;
+    color: #062F4F;
+}
+
+.video {
+    width: 100%;
+}
+
+.content_item {
+    margin-top: 1em;
+}
+
+
+.start {
+    height: 33px;
+    background: #062F4F;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+.completed {
+    height: 33px;
+    background: #50962F;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+

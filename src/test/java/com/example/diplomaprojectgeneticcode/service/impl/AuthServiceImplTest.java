@@ -1,5 +1,6 @@
 package com.example.diplomaprojectgeneticcode.service.impl;
 
+import com.example.diplomaprojectgeneticcode.dto.CourseDTO;
 import com.example.diplomaprojectgeneticcode.dto.LoginRequest;
 import com.example.diplomaprojectgeneticcode.dto.RegisterRequest;
 import com.example.diplomaprojectgeneticcode.entity.*;
@@ -48,13 +49,15 @@ class AuthServiceImplTest {
 
     @Test
     void testLogin() {
+        String s = "a";
+        User user2 = new User();
         User user = null;
-        boolean s = Optional.ofNullable(user)
-                .map(User::getEmail)
-                .filter(u -> u.isBlank())
-                .isPresent();
-        System.out.println(s);
+        Optional<User> user1 = Optional.ofNullable(user);
+        user1.map(User::getEmail).ifPresent(s1 -> user2.setEmail(s));
+        System.out.println(user2.getEmail());
 
+        Optional<CourseDTO> build = Optional.ofNullable(CourseDTO.builder().courseLang(null).build());
+        System.out.println(build.get());
     }
 }
 

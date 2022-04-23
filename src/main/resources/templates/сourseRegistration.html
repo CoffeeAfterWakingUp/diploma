@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Course Registration</title>
+    <link rel="stylesheet" th:href="@{/css/сourseRegistration.css}">
+    <div th:replace="fragments/headLinks :: headLinks"></div>
+</head>
+<body>
+<div class="main">
+    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div class="content_blog">
+        <div th:replace="fragments/header :: header (courseTitle='Course Registration')"></div>
+        <div class="icontainer">
+            <div class="course_types">
+                <div class="course_type top_courses">Top Courses</div>
+                <div class="course_type">Course Search</div>
+            </div>
+            <div class="search_course">
+                <form action="#" th:action="@{/courses/search}" method="GET">
+                    <input type="text" name="title" id="course" placeholder="Search" class="search_input"
+                           th:value="${param.title}">
+                </form>
+            </div>
+            <div class="cont_body">
+                <div class="filter_courses">
+                    <div class="filter_header">
+                        Filter
+                        <img th:src="@{/images/filter.svg}" alt="">
+                    </div>
+                    <div class="filter_inputs">
+                        <form action="#" th:action="@{/courses/filter}" method="GET">
+                            <div class="filter_types">
+                                <span>Instructor's full name</span>
+                                <label>
+                                    <input type="text" class="filter_input" name="teacher" th:value="${param.teacher}">
+                                </label>
+                            </div>
+                            <div class="filter_types">
+                                <span>Categories</span>
+                                <label>
+                                    <select class="filter_input" type="text" name="category" id="category">
+                                        <option value=""></option>
+                                        <th:block th:each="category : ${categories}">
+                                            <option th:text="${category.name}"
+                                                    th:value="${category.name}"
+                                                    th:selected="${#strings.equals(category.name, param.category)}"></option>
+                                        </th:block>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="filter_types">
+                                <span>Languages</span>
+                                <label>
+                                    <select type="text" class="filter_input" name="language" id="language">
+                                        <option value=""></option>
+                                        <th:block th:each="language : ${languages}">
+                                            <option th:text="${language}"
+                                                    th:value="${language}"
+                                                    th:selected="${#strings.equals(language, param.language)}"></option>
+                                        </th:block>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="filter_types">
+                                <span>Level</span>
+                                <label>
+                                    <select type="text" class="filter_input" name="level" id="level">
+                                        <option value=""></option>
+                                        <th:block th:each="level : ${levels}">
+                                            <option th:text="${level}"
+                                                    th:value="${level}"
+                                                    th:selected="${#strings.equals(level, param.level)}"></option>
+                                        </th:block>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="filter_types">
+                                <span>Price</span>
+                                <label>
+                                    <select type="text" class="filter_input" name="sort" id="sort">
+                                        <option value=""></option>
+                                        <th:block th:each="price : ${prices}">
+                                            <option th:text="${price.filterName}"
+                                                    th:value="${price.value}"
+                                                    th:selected="${#strings.equals(price.value, param.sort)}"></option>
+                                        </th:block>
+                                    </select>
+                                </label>
+                            </div>
+                            <button class="filter_button" type="submit">Filter</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="course_list">
+                    <th:block th:each="course : ${coursesPage.content}"
+                              th:if="${not #lists.isEmpty(coursesPage.content)}">
+                        <div class="course_card">
+                            <div class="course_img">
+                                <img th:src="@{/images/Rectangle 75.png}" alt="">
+                            </div>
+                            <div class="course_info">
+                                <div class="course_info_header">
+
+                                    <a th:text="${course.title}" class="course_name" th:href="@{/courses/{course}(course=${course.title})}"></a>
+                                    <div class="course_price">
+                                        <p class="pirce_now" th:text="${course.price}">21 $</p>
+                                        <!--                                        <p class="price_before">97 $</p>-->
+                                    </div>
+                                </div>
+                                <p class="course_info_body">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                </p>
+                                <th:block th:each="teacher,iter : ${course.teachers}">
+                                    <th:block th:if="${iter.index} == ${#lists.size(course.teachers)}">
+                                        <p class="author" th:text="${teacher} + ', '">Author name</p>
+                                    </th:block>
+                                    <th:block th:unless="${iter.index} == ${#lists.size(course.teachers)}">
+                                        <p class="author" th:text="${teacher}">Author name</p>
+                                    </th:block>
+                                </th:block>
+
+                                <div class="course_info_footer">
+                                    <div class="course_info_rating">
+                                        <span class="rate_number" th:text="${course.rating}">4.9</span>
+                                        <div class="rate_icons">
+                                            <img th:src="@{/images/star.svg}" alt="">
+                                        </div>
+                                        <span class="reviews"> (1753)</span>
+                                    </div>
+                                    <!--                                    <div class="best_seller">Best Seller</div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+                    <th:block th:unless="${not #lists.isEmpty(coursesPage.content)}">
+                        <div class="course_card">
+                            <p>Not found course</p>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -11,9 +11,4 @@ class DiplomaProjectGeneticCodeApplicationTests {
 //    }
 
 
-    @Test
-    void test() {
-
-    }
-
 }

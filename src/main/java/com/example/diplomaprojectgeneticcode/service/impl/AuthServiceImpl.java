@@ -30,10 +30,7 @@ public class AuthServiceImpl implements AuthService {
     private final UserService userService;
     private final TokenRepo tokenRepo;
     private final EmailSender emailSender;
-    //private final JwtProvider jwtProvider;
-
     private final TokenService tokenService;
-    private final AuthenticationManager authenticationManager;
 
 
     @Override
