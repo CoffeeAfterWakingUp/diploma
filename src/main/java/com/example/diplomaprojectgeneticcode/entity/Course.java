@@ -30,22 +30,22 @@ public class Course {
     @Column(nullable = false, length = 300)
     private String title;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT")
     private String subtitle;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT")
     private String image;
 
     @Column(name = "promo_video")
     private String promoVideoUrl;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT")
     private String benefits;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT")
     private String requirements;
 
     @Column(columnDefinition = "TEXT")

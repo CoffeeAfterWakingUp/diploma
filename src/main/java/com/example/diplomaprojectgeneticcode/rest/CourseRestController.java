@@ -34,7 +34,7 @@ public class CourseRestController extends AbstractRestController {
 
 
     @PostMapping("")
-    public ResponseEntity<ResponseDTO<CourseDTO>> createCourse(@RequestBody CourseDTO courseDto) {
+    public ResponseEntity<ResponseDTO<CourseDTO>> createCourse(@RequestBody CourseDTO courseDto) throws Exception {
         return success(
                 courseMapper.toDto(courseService.createCourse(courseMapper.toCourse(courseDto))),
                 CREATED);
