@@ -24,17 +24,17 @@ html, body {
     cursor: pointer;
 }
 .logo {
-  width: 182px;
-  height: 69px;
-  background: url("../images/dark.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
+    width: 182px;
+    height: 69px;
+    background: url("../images/dark.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
 }
 .main_menu {
 }
@@ -56,22 +56,22 @@ ul {
     margin-bottom: 20px;
 }
 .menu_item {
-  height: 60px;
-  width: 90%;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding-left: 15.5px;
-  cursor: pointer;
+    height: 60px;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 15.5px;
+    cursor: pointer;
 
-  font-family: 'Expletus Sans', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 25px;
+    font-family: 'Expletus Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
 
-  color: #CCD2E3;
+    color: #CCD2E3;
 }
 .menu_item.chosen {
     color: white;
@@ -225,7 +225,7 @@ a{
     background-color: #E5E5E5;
     border-radius: 20px;
     width: 1200px;
-  }
+}
 .left-content{
     background-color: white;
     border-radius: 20px;
@@ -245,7 +245,7 @@ a{
     border-radius: 12px;
 }
 textarea{
-  padding-left: 10px;
+    padding-left: 10px;
     width: 1000px;
 }
 
@@ -282,21 +282,21 @@ textarea{
 .drag.active{
     border: 2px solid #fff;
     background-color:aqua;
-  }
+}
 
 .drag-area .icon{
     font-size: 30px;
     color: #062F4F;
-  }
+}
 
-  .drag-area header{
+.drag-area header{
     font-weight: 500px;
     color: #062F4F;
     font-size: 20px;
-  }
+}
 
 
-  .drag2{
+.drag2{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -316,20 +316,20 @@ textarea{
 .drag2.active{
     border: 2px solid #fff;
     background-color:aqua;
-  }
+}
 
 .drag-area2 .icon2{
     font-size: 30px;
     color: #062F4F;
-  }
+}
 
-  .drag-area2 header{
+.drag-area2 header{
     font-weight: 500px;
     color: #062F4F;
     font-size: 20px;
-  }
+}
 
-  .drag3{
+.drag3{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -349,32 +349,32 @@ textarea{
 .drag3.active{
     border: 2px solid #fff;
     background-color:aqua;
-  }
+}
 
 .drag-area3 .icon2{
     font-size: 30px;
     color: #062F4F;
-  }
+}
 
-  .drag-area3 header{
+.drag-area3 header{
     font-weight: 500px;
     color: #062F4F;
     font-size: 20px;
-  }
+}
 
 
 
 /* ////////////////////////////////////////////////////////////////////// */
-  .other_info{
-      padding-top: 50px;
-  }
+.other_info{
+    padding-top: 50px;
+}
 
 
-  .headh4{
-      color: #062F4F;
-  }
+.headh4{
+    color: #062F4F;
+}
 
-  .tricks{
+.tricks{
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -390,9 +390,9 @@ textarea{
     background: #062F4F;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-  }
+}
 
-  .tricks2{
+.tricks2{
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -409,22 +409,22 @@ textarea{
     /* box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); */
     border-radius: 10px;
     border: 1px solid #062F4F;
-  }
+}
 
 
-  .body_of_trick{
-      color:#CCD2E3;
-      font-size: 16px;
-  }
+.body_of_trick{
+    color:#CCD2E3;
+    font-size: 16px;
+}
 
-  .left_side{
-      background-color: #062F4F;
-      color: white;
-      height: 63px;
-      border-radius: 10px 0px 0px 10px;
-  }
+.left_side{
+    background-color: #062F4F;
+    color: white;
+    height: 63px;
+    border-radius: 10px 0px 0px 10px;
+}
 
-  .body_of_trick2{
+.body_of_trick2{
     color:#062F4F;
     font-size: 16px;
 }
@@ -444,5 +444,11 @@ textarea{
     margin-top: 25px;
 }
 #other{
- padding-top: 0px;
+    padding-top: 0px;
+}
+.submitLabel{
+    width: 80%;
+    height: 170px;
+    padding-left: 250px;
+    margin-left: 55px;
 }
