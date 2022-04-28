@@ -5,9 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>New Course</title>
+    <title>Grades</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/New_course_style.css}">
+    <link rel="stylesheet" th:href="@{/css/grades.css}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
 <!--    <link rel="stylesheet" href="static/css/New_course_style.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
@@ -43,6 +45,14 @@
                       </svg>
                     <span class="ms-2">Students</span>
                 </li>
+                <li class="menu_item ">
+                    <img th:src="@{/images/Grades.svg}" alt="">
+                    <span class="ms-2">Grades</span>
+                </li>
+                <li class="menu_item ">
+                    <img th:src="@{/images/Attendance.svg}" alt="">
+                    <span class="ms-2">Attendance</span>
+                </li>
             </ul>
         </div>
         <div class="main_menu">
@@ -77,14 +87,14 @@
     </div>
     <div class="content_blog">
         <div class="header">
-            <h1 class="page_title">New Course</h1>
+            <h1 class="page_title">Java Programming</h1>
             <div class="header_menu">
                 <div class="cart">
                     <img th:src="@{/images/headercart.svg}" alt="">
                 </div>
                 <a href="">
                     <div class="dashboard_type">
-                          Dashboard Teacher
+                          Dashboard Student
                     </div>
                 </a>
                 <div class="user">
@@ -100,95 +110,72 @@
         </div>
 
         <div class="main-content row">
-            <div class="col-8 left-content ms-2 mt-2">
-              <form action="" method="">
-                <h4 class="mt-5 ms-5 other_info headh4" id = "other">Course Information</h4>
-                  <hr>
-                  <div class="row inputs">
-                      <div class="col-5 ms-5">
-                        <input type="text" class="form-control" id="course_name" placeholder="Course Name">
-                        <textarea name="tags" rows="6" class="mt-4" id="course_description" placeholder="Description"></textarea>
-                        <input type="number" class="form-control mt-3" id="course_price" placeholder="Price">
-
-                      </div>
-
-                  </div>
-
-                <h4 class="mt-5 ms-5 headh4">File Upload</h4>
-                <hr>
-
-                <div class="row ms-5">
-                  <div class="col-5">
-                      <h5>Main Courses File</h5>
-                      <div class="drag">
-                          <div class="drag-area">
-                            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                            <header>Drag & Drop to Upload File</header>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-5">
-                    <h5>Main Courses File</h5>
-                    <div class="drag2">
-                        <div class="drag-area2">
-                          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                          <header>Drag & Drop to Upload File</header>
-                        </div>
-                    </div>
-                    <h5 class="d_h">File with sceketches</h5>
-                    <div class="drag3">
-                        <div class="drag-area3">
-                          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                          <header>Drag & Drop to Upload File</header>
-                        </div>
-                    </div>
-
-                  </div>
-                </div>
-
-                    <label class="submitLabel">
-                    <input id = "agreement" type="checkbox" value="agree"> I am totally agree with Term & Condition</input>
-                          <input type="Submit" value="Submit For Review" class="submit_button mt-5" th:onclick="saveCourse()">
-                    </label>
-
-             </form>
+            <div class="col-8 left-content ms-2 mt-2" style="height: 600px">
+                <h4 class="mt-5 ms-5 other_info headh4" id = "other">Grades</h4>
+                <hr style="border: 0.2rem solid #062F4F">
+                    <table id="gradestable" class="table table-bordered " style="height: 400px;width: 70%;margin-left: 100px">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th><a text="id">ID</a></th>
+                            <th><a text="User id">User Name</a></th>
+                            <th><a text="Course_id">Course name</a></th>
+                            <th><a text="Quiz #1">Quiz #1</a></th>
+                            <th><a text="Quiz #2">Quiz #2</a></th>
+                            <th><a text="Quiz #3">Quiz #3</a></th>
+                            <th><a text="Exam">Exam</a></th>
+                            <th><a text="Date">Date</a></th>
+                            <th><a text="Total">Total</a></th>
+                            <th><a text="Mentor">Mentor</a></th>
+                        </tr>
+                        </thead>
+                    </table>
+<!--
             </div>
-
-
-
     </div>
 </div>
-<!--<script src="static/js/new_course_js.js"></script>-->
+    <!--Import jQuery before export.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-    <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--Data Table-->
+    <script type="text/javascript"  src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"  src=" https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+
+    <!--Export table buttons-->
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js" ></script>
+    <script type="text/javascript"  src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 <script>
-    function saveCourse(){
-        let courseName = $('#course_name').val();
-        let courseDescription = $('#course_description').val();
-        let coursePrice = $('#course_price').val();
-
-    var form = new FormData();
-    form.append("courseName", courseName);
-    form.append("courseDescription", courseDescription);
-    form.append("coursePrice", coursePrice);
-
-    var settings = {
-    "url": "/rest/newcourse/create",
-    "method": "POST",
-    "timeout": 0,
-    "processData": false,
-    "contentType": false,
-    "data": form
-    };
-    $.ajax(settings).done(function (response) {
-    console.log(response);
-    if(response.result){
-        $('#course_name').val(undefined);
-        $('#course_description').val(undefined);
-        $('#course_price').val(undefined);
-    }
+    const gradestable = $('#gradestable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "select": true,
+        "ajax": {
+            "url": "/rest/grades/list",
+            "type": "POST",
+            "dataType": "json",
+            "contentType": "application/json",
+            "data": function (d) {
+                console.log(JSON.stringify(d))
+                return JSON.stringify(d);
+            }
+        },
+        "columns": [
+            {"data": "id"},
+            {"data": "user_id"},
+            {"data": "course_id"},
+            {"data": "quiz1"},
+            {"data": "quiz2"},
+            {"data": "quiz3"},
+            {"data": "exam"},
+            {"data": "date"},
+            {"data": "total"},
+            {"data": "mentor"}
+        ]
     });
-    }
     </script>
 
 

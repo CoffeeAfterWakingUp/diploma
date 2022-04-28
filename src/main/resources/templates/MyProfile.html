@@ -110,37 +110,30 @@
                             <!-- info about something and img of react and redux -->
                             <div class="inputRows">
                                 <div class="inputField">
-                                  <input class="nameText" id="firstName" type="text" placeholder="First Name" name="" value="">
+                                  <input class="nameText" id="firstName" type="text" placeholder="First Name">
                                 </div>
                                 <div class="inputField">
-                                  <input class="nameText" id="lastName" type="text" placeholder="Last Name" name="" value="">
-                                </div>
-                            </div>
-                            <div class="inputRows">
-                                <div class="inputField">
-                                  <input class="nameText" id="email" type="text" placeholder="Email" name="" value="">
-                                </div>
-                                <div class="inputField">
-                                  <input class="nameText" id="phoneNumber" type="text" placeholder="Phone number" name="" value="">
+                                  <input class="nameText" id="lastName" type="text" placeholder="Last Name">
                                 </div>
                             </div>
                             <div class="inputRows">
                                 <div class="inputField">
-                                  <input class="nameText" id="userName" type="text" placeholder="User Name" name="" value="">
+                                  <input class="nameText" id="email" type="text" placeholder="Email">
+                                </div>
+                                <div class="inputField">
+                                  <input class="nameText" id="phoneNumber" type="text" placeholder="Phone number">
                                 </div>
                             </div>
                             <div class="inputRows">
                                 <div class="inputField">
-                                  <input class="nameText" id="Password" type="text" placeholder="Password" name="" value="">
+                                  <input class="nameText" id="password" type="text" placeholder="Password">
                                 </div>
                                 <div class="inputField">
-                                  <input class="nameText" id="confirmPassword" type="text" placeholder="Confirm Password" name="" value="">
+                                  <input class="nameText" id="confirmPassword" type="text" placeholder="Confirm Password">
                                 </div>
                             </div>
                             <div class="avatar">
-
                             </div>
-
                             <h4 class="mt-4 headh4">Other Information</h4>
                             <hr>
                             <div class="otherRow">
@@ -151,23 +144,59 @@
                                   <input class="nameText" id="city" type="text" placeholder="City" name="" value="">
                                 </div>
                             </div>
-
-
-
+                            <label class="submitLabel">
+                                <input type="Submit" value="Submit For Review" class="submit_button mt-5" th:onclick="saveTeacherEdit()">
+                            </label>
                         </div>
 
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
         </div>
     </div>
 </div>
+
+<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+<script>
+    function saveTeacherEdit(){
+        let firstName = $('#firstName').val();
+        let lastName = $('#lastName').val();
+        let email = $('#email').val();
+        let phoneNumber = $('#phoneNumber').val();
+        let userName = $('#userName').val();
+        let password = $('#password').val();
+        let confirmpassword = $('#confirmPassword').val();
+
+        var form = new FormData();
+        form.append("firstName", firstName);
+        form.append("lastName", lastName);
+        form.append("email", email);
+        form.append("userName", userName);
+        form.append("password", password);
+
+
+        var settings = {
+            "url": "/rest/teacher/edit",
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "contentType": false,
+            "data": form
+        };
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            if(response.result){
+                $('#firstName').val(undefined);
+                $('#lastName').val(undefined);
+                $('#email').val(undefined);
+                $('#userName').val(undefined);
+                $('#password').val(undefined);
+            }
+        });
+    }
+
+</script>
 </body>
 </html>

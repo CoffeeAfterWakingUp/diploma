@@ -28,6 +28,7 @@ public final class Constant {
     public static final String STUDENT_MY_COURSE_PAGE = "TeacherMycourse";
     public static final String NEW_COURSE_PAGE = "NewCourse";
     public static final String MY_PROFILE_PAGE = "Myprofile";
+    public static final String GRADES_PAGE = "Grades";
 
 
 }

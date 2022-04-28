@@ -15,7 +15,7 @@ public class DataSourceConfig {
 
     private static final String USERNAME = "postgres";
     private static final String URL = "jdbc:postgresql://localhost:5432/qcrm?stringtype=unspecified";
-    private static final String PASSWORD = "123";
+    private static final String PASSWORD = "user";
     private static final String DRIVER = "org.postgresql.Driver";
 
     @Bean
