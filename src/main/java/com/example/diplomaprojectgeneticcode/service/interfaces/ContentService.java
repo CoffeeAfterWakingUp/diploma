@@ -14,4 +14,6 @@ public interface ContentService {
     boolean getCompletedOfContentByStudentId(UUID contentId, UUID studentId);
 
     List<Content> getCompletedContentsOfStudent(UUID courseId, UUID studentId);
+
+    boolean addContentsToStudent(UUID courseId, String username);
 }

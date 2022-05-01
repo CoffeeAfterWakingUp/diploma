@@ -39,7 +39,7 @@
                                     <div class="course_info">
                                         <div class="course_info_header">
                                             <a th:text="${course.title}" class="course_name"
-                                               th:href="@{{courseId}/curriculum (courseId=${course.id})}"></a>
+                                               th:href="@{/my-courses/{courseId}/curriculum (courseId=${course.id})}"></a>
                                         </div>
                                         <p class="course_info_body">
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.

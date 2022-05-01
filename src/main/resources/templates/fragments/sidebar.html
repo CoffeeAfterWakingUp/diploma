@@ -15,13 +15,11 @@
                 th:if="${!isTeacher}">
                 <img src="#" th:src="@{/images/courseReg.svg}" alt="">
                 <a href="#" th:href="@{/courses}">Course Registration</a>
-                <!--                <div class="notification">1</div>-->
             </li>
             <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'new-course') ? 'chosen' : ''}"
                 th:if="${isTeacher}">
                 <img src="#" th:src="@{/images/courseReg.svg}" alt="">
                 <a href="#" th:href="@{/courses}">New Course</a>
-                <!--                <div class="notification">1</div>-->
             </li>
         </ul>
     </div>
@@ -83,8 +81,8 @@
                     <a href="#">News</a>
                 </li>
                 <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'settings') ? 'chosen' : ''}">
-                    <img src="#" th:src="@{/images/Contacts.svg}" alt="">
-                    <a href="#">Settings</a>
+                    <img src="#" th:src="@{/images/Setting_alt_line.svg}" alt="">
+                    <a href="#" th:href="@{/settings}">Settings</a>
                 </li>
             </th:block>
         </ul>

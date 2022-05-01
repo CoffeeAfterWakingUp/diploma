@@ -63,6 +63,15 @@ public class ContentRestController extends AbstractRestController {
     }
 
 
+    @PostMapping("/add/{courseId}/contents")
+    public ResponseEntity<ResponseDTO<Boolean>> addContentsToStudent(@PathVariable UUID courseId,
+                                                                     @RequestParam String username) {
+
+        return successOK(contentService.addContentsToStudent(courseId, username));
+
+    }
+
+
 
 
 

@@ -1,11 +1,10 @@
 package com.example.diplomaprojectgeneticcode.service.impl;
 
-import com.example.diplomaprojectgeneticcode.entity.Content;
-import com.example.diplomaprojectgeneticcode.entity.StudentContent;
-import com.example.diplomaprojectgeneticcode.entity.StudentContentId;
+import com.example.diplomaprojectgeneticcode.entity.*;
 import com.example.diplomaprojectgeneticcode.repo.ContentRepo;
 import com.example.diplomaprojectgeneticcode.repo.StudentContentRepo;
 import com.example.diplomaprojectgeneticcode.service.interfaces.ContentService;
+import com.example.diplomaprojectgeneticcode.service.interfaces.CourseService;
 import com.example.diplomaprojectgeneticcode.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +23,7 @@ public class ContentServiceImpl implements ContentService {
     private final ContentRepo contentRepo;
     private final StudentContentRepo studentContentRepo;
     private final UserService userService;
+    private final CourseService courseService;
 
     @Override
     public List<Content> getContentsByCourseId(UUID id) {
@@ -70,5 +70,19 @@ public class ContentServiceImpl implements ContentService {
     @Override
     public Content updateContent(UUID id, Content content) {
         return contentRepo.save(content);
+    }
+
+
+    @Override
+    public boolean addContentsToStudent(UUID courseId, String username) {
+        User user = userService.getUserByEmail(username);
+        List<Content> contentsByCourseId = getContentsByCourseId(courseId);
+
+        for (Content c : contentsByCourseId) {
+            StudentContent studentContent = new StudentContent(user, c);
+            studentContentRepo.save(studentContent);
+        }
+
+        return true;
     }
 }

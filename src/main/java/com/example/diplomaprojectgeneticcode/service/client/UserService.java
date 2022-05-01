@@ -1,13 +1,11 @@
 package com.example.diplomaprojectgeneticcode.service.client;
 
-import com.example.diplomaprojectgeneticcode.dto.ResponseDTO;
-import com.example.diplomaprojectgeneticcode.dto.SectionDTO;
-import com.example.diplomaprojectgeneticcode.dto.StudentContentDTO;
-import com.example.diplomaprojectgeneticcode.dto.UserDTO;
+import com.example.diplomaprojectgeneticcode.dto.*;
 import com.example.diplomaprojectgeneticcode.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -84,7 +82,8 @@ public class UserService {
             response = restTemplate.exchange(uri,
                     HttpMethod.GET,
                     null,
-                    new ParameterizedTypeReference<ResponseDTO<List<StudentContentDTO>>>() {},
+                    new ParameterizedTypeReference<ResponseDTO<List<StudentContentDTO>>>() {
+                    },
                     studentId, courseId).getBody();
             log.info("response: {}", response);
         } catch (Exception e) {
@@ -100,6 +99,94 @@ public class UserService {
         log.info("response data: {}", userDTO);
         return userDTO;
     }
+
+
+    public String saveSettings(UUID id, SettingsDTO settingsDTO) {
+        ResponseDTO<String> response = null;
+        try {
+            String uri = "api/users/{id}/settings/details";
+
+            HttpEntity<SettingsDTO> entity = new HttpEntity<>(settingsDTO);
+
+            response = restTemplate.exchange(uri,
+                    HttpMethod.PATCH,
+                    entity,
+                    new ParameterizedTypeReference<ResponseDTO<String>>() {
+                    },
+                    id).getBody();
+            log.info("response: {}", response);
+        } catch (Exception e) {
+            log.error("Exception: {}", e.getMessage());
+            return "fail";
+        }
+
+        String responseData = Optional.ofNullable(response)
+                .map(ResponseDTO::getData)
+                .orElse("fail");
+
+
+        log.info("response data: {}", responseData);
+        return responseData;
+    }
+
+    public SettingsDTO getSettings(UUID id) {
+        ResponseDTO<SettingsDTO> response = null;
+        try {
+            String uri = "api/users/{id}/settings/details";
+
+
+            response = restTemplate.exchange(uri,
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<ResponseDTO<SettingsDTO>>() {
+                    },
+                    id).getBody();
+            log.info("response: {}", response);
+        } catch (Exception e) {
+            log.error("Exception: {}", e.getMessage());
+            return new SettingsDTO();
+        }
+
+        SettingsDTO responseData = Optional.ofNullable(response)
+                .map(ResponseDTO::getData)
+                .orElse(new SettingsDTO());
+
+
+        log.info("response data: {}", responseData);
+        return responseData;
+    }
+
+
+    public String changePassword(UUID id, PasswordDTO dto) {
+        ResponseDTO<String> response = null;
+        try {
+            String uri = "api/users/{id}/settings/changePassword";
+
+            HttpEntity<PasswordDTO> entity = new HttpEntity<>(dto);
+
+            response = restTemplate.exchange(uri,
+                    HttpMethod.PATCH,
+                    entity,
+                    new ParameterizedTypeReference<ResponseDTO<String>>() {
+                    },
+                    id).getBody();
+            log.info("response: {}", response);
+        } catch (Exception e) {
+            log.error("Exception: {}", e.getMessage());
+            return "fail";
+        }
+
+        String responseData = Optional.ofNullable(response)
+                .map(ResponseDTO::getData)
+                .orElse("fail");
+
+
+        log.info("response data: {}", responseData);
+        return responseData;
+    }
+
+
+
 
 
 

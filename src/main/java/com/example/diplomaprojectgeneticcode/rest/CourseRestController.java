@@ -61,6 +61,15 @@ public class CourseRestController extends AbstractRestController {
         return successOK(courseMapper.toDto(courseService.getCoursesByUsername(username)));
     }
 
+    @PostMapping("/{courseId}/rollIn")
+    public ResponseEntity<ResponseDTO<Boolean>> studentRollInCourse(@PathVariable UUID courseId, @RequestParam String username) {
+        return successOK(courseService.rollInCourse(username, courseId));
+    }
+
+    @GetMapping("/{courseId}/isAlreadyRolledIn")
+    public ResponseEntity<ResponseDTO<Boolean>> checkIsStudentRolledIn(@PathVariable UUID courseId, @RequestParam String username) {
+        return successOK(courseService.checkIsStudentRolledIn(username, courseId));
+    }
 
 
 }

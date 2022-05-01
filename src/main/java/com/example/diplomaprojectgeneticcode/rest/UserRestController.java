@@ -1,9 +1,8 @@
 package com.example.diplomaprojectgeneticcode.rest;
 
-import com.example.diplomaprojectgeneticcode.dto.StudentContentDTO;
-import com.example.diplomaprojectgeneticcode.dto.UserDTO;
+import com.example.diplomaprojectgeneticcode.dto.*;
 import com.example.diplomaprojectgeneticcode.entity.User;
-import com.example.diplomaprojectgeneticcode.dto.ResponseDTO;
+import com.example.diplomaprojectgeneticcode.mapper.SettingsMapper;
 import com.example.diplomaprojectgeneticcode.mapper.StudentContentMapper;
 import com.example.diplomaprojectgeneticcode.mapper.UserMapper;
 import com.example.diplomaprojectgeneticcode.service.interfaces.UserService;
@@ -28,6 +27,7 @@ public class UserRestController extends AbstractRestController {
     private final UserService userService;
     private final UserMapper userMapper;
     private final StudentContentMapper studentContentMapper;
+    private final SettingsMapper settingsMapper;
 
     @GetMapping(value = "", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseDTO<List<User>>> getAll() {
@@ -62,6 +62,28 @@ public class UserRestController extends AbstractRestController {
                         userService.getAttendanceOfStudent(studentId, courseId)
                 )
         );
+    }
+
+    @GetMapping("{id}/settings/details")
+    public ResponseEntity<ResponseDTO<SettingsDTO>> getSettingsDetailsOfUser(@PathVariable UUID id) {
+        return successOK(
+                settingsMapper.toDto(
+                        userService.getById(id)
+                )
+        );
+    }
+
+    @PatchMapping("/{id}/settings/details")
+    public ResponseEntity<ResponseDTO<String>> saveSettings(@PathVariable UUID id,
+                             @RequestBody SettingsDTO settingsDTO) {
+
+        return successOK(userService.updateSettings(id, settingsDTO));
+    }
+
+    @PatchMapping("{id}/settings/changePassword")
+    public ResponseEntity<ResponseDTO<String>> changePassword(@PathVariable UUID id,
+                                                              @RequestBody PasswordDTO passwordDTO) {
+        return successOK(userService.changePassword(id, passwordDTO));
     }
 
     @PostMapping(value = "", produces = APPLICATION_JSON_VALUE)
@@ -102,10 +124,6 @@ public class UserRestController extends AbstractRestController {
                         .build()
         );
     }
-
-
-
-
 
 
 }

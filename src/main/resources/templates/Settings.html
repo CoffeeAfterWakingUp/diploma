@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Settings</title>
+    <div th:replace="fragments/headLinks :: headLinks"></div>
+    <link rel="stylesheet" th:href="@{/css/Settings.css}">
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+</head>
+<body>
+<div class="main h-100">
+    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div class="content_blog">
+        <div th:replace="fragments/header :: header (courseTitle=${'Settings'})"></div>
+        <div class="icontainer container-fluid">
+            <div class="cont_body">
+                <div class="curriculum">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert"
+                         th:if="${param.response}">
+                        Settings successfully changed to
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="curriculum_header">
+                        <h1>Generals</h1>
+                    </div>
+
+                    <form action="#" th:action="@{/settings/save}" method="post" enctype="multipart/form-data" th:object="${settings}">
+
+                        <div class="generals_wrapper">
+                            <div class="generals_content">
+                                <div class="generals_details">
+                                    <input type="text" name="firstName" placeholder="First Name" th:field="*{name}" th:value="${settings.name}">
+                                    <input type="text" name="lastName" placeholder="Last Name" th:field="*{surname}" th:value="${settings.surname}">
+                                </div>
+                                <div class="generals_details">
+                                    <input type="email" name="email" placeholder="Email" th:field="*{email}" th:value="${settings.email}">
+                                    <input type="text" name="phoneNumber" placeholder="Phone Number" th:field="*{phoneNumber}" th:value="${settings.phoneNumber}">
+                                </div>
+                            </div>
+                            <div class="generals_img">
+                                <img src="#" th:src="@{${'/img/' + settings.image}}" alt="">
+                                <label for="p_image" class="custom_file_upload">
+                                    Change Image
+                                </label>
+                                <input type="file" name="file" id="p_image">
+                            </div>
+                        </div>
+
+
+                        <div class="curriculum_header">
+                            <h1>Other Information</h1>
+                        </div>
+
+                        <div class="other_information_wrapper">
+                            <div class="other_information_content">
+                                <div class="other_information_details other_inf_inline">
+                                    <input type="text" placeholder="Social Media" name="socialMediaUrl" th:field="*{socialMediaUrl}" th:value="${settings.socialMediaUrl}">
+                                    <input type="text" placeholder="Personal Website" name="personalWebUrl" th:field="*{personalWebUrl}" th:value="${settings.personalWebUrl}">
+                                </div>
+                            </div>
+                            <div class="other_information_content">
+                                <div class="other_information_details">
+                                    <label for="editor">About Info</label>
+                                    <textarea name="biography" id="editor" th:field="*{biography}" th:value="${settings.biography}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="submit_button">
+                            <button type="submit">Save Changes</button>
+                        </div>
+
+                    </form>
+
+                    <div class="curriculum_header">
+                        <h1>Password</h1>
+                    </div>
+
+                    <div class="generals_wrapper">
+                        <div class="generals_content">
+                            <div class="generals_details">
+                                <form action="#" th:action="@{/settings/changePassword}" method="post" th:object="${password}">
+                                    <input type="password" name="oldPassword" placeholder="Old Password"
+                                           th:field="*{oldPassword}">
+                                    <input type="password" name="newPassword" placeholder="New Password"
+                                           th:field="*{newPassword}">
+                                    <button type="submit">Change Password</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>

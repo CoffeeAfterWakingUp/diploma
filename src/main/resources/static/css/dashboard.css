@@ -12,7 +12,7 @@ html, body {
 
 .welcome_msg .hi {
     font-family: "Montserrat", sans-serif;
-    font-size: 20px;
+    font-size: 25px;
     display: flex;
     align-items: center;
     color: #062F4F;
@@ -110,4 +110,72 @@ html, body {
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+}
+
+.top_courses {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    color: #062F4F;
+    font-weight: bolder;
+}
+
+.top_courses_wrapper {
+    margin-top: 5em;
+    width: 85%;
+}
+
+.course_card {
+    background: white;
+    border-radius: 10px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+.author {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #808191;
+    margin-top: 1em;
+}
+
+.card_title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    color: #11142D;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.card_footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.star_img {
+    display: flex;
+    justify-content: flex-end;
+    width: 75%;
+}
+
+.students {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card_footer img {
+    width: 20px;
+    height: 20px;
+}
+
+.alert {
+    width: 80%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
 }

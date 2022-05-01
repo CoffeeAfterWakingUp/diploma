@@ -1,0 +1,185 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    display: flex;
+}
+
+
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.billing-address {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.billing-address label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card_name_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.card_images img {
+    width: 30px;
+}
+
+.card {
+    padding: 1em;
+    margin-left: 1em;
+    height: 100%;
+}
+
+.card_name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+input[type="text"] {
+    height: 50px;
+    width: 100%;
+    margin-right: 1em;
+}
+
+.card_details {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+}
+
+input[type="text"]::placeholder {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    padding: 1em;
+}
+
+select {
+    word-wrap: normal;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    padding: 1em;
+    height: 50px;
+}
+
+.right {
+    display: flex;
+    width: 30%;
+}
+
+.summary {
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 1em;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.price {
+    display: flex;
+}
+
+.total_price_wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.total_text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.total_price {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.complete_payment button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    width: 100%;
+    color: white;
+    padding: 1em;
+    background: #062F4F;
+    border: 1px solid;
+}
+
+.order_details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+    margin-top: 2em;
+}
+
+.order_details_text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.course_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.course {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.course_img {
+    width: 15%;
+}
+
+.course_img img {
+    width: 80%;
+    height: 100%;
+}
+
+.course_name {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.course_price {
+    display: flex;
+    align-items: flex-start;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    justify-content: flex-end;
+    width: 15%;
+}

@@ -1,5 +1,7 @@
 package com.example.diplomaprojectgeneticcode.service.interfaces;
 
+import com.example.diplomaprojectgeneticcode.dto.PasswordDTO;
+import com.example.diplomaprojectgeneticcode.dto.SettingsDTO;
 import com.example.diplomaprojectgeneticcode.entity.StudentContent;
 import com.example.diplomaprojectgeneticcode.entity.User;
 
@@ -18,4 +20,8 @@ public interface UserService {
     List<StudentContent> getGradesOfStudent(UUID studentId, UUID courseId);
 
     List<StudentContent> getAttendanceOfStudent(UUID studentId, UUID courseId);
+
+    String updateSettings(UUID id, SettingsDTO settingsDTO);
+
+    String changePassword(UUID id, PasswordDTO passwordDTO);
 }

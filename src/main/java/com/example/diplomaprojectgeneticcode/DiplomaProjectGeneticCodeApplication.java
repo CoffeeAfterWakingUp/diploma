@@ -154,7 +154,7 @@ public class DiplomaProjectGeneticCodeApplication implements CommandLineRunner {
 
 
         courseStudentRepo.save(new CourseStudent(course1Created, newUser));
-        courseStudentRepo.save(new CourseStudent(courseCreated, newUser));
+//        courseStudentRepo.save(new CourseStudent(courseCreated, newUser));
         courseStudentRepo.save(new CourseStudent(course2Created, newUser));
 
         Section section = sectionRepo.save(

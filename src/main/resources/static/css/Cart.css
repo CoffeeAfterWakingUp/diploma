@@ -1,0 +1,156 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    display: flex;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1;
+}
+.cart_courses_wrapper {
+    width: 70%;
+}
+
+.cart_course {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #e2dfdf;
+    padding: 1em;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+.course_img {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 20%;
+}
+
+.course_img img {
+    width: 120px;
+}
+
+.course_content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1em;
+    margin-right: 1em;
+    width: 90%;
+}
+
+.course_title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.course_title a {
+    text-decoration: none;
+    color: black;
+}
+
+.course_instructors {
+    display: flex;
+    flex-direction: row;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    margin-top: 0.5em;
+}
+
+.course_rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.rating {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 0.2em;
+}
+
+.course_price {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.remove_course {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2em;
+    align-items: flex-start;
+}
+
+.remove_course button {
+    border: 0;
+    background: none;
+}
+
+.star_img {
+    display: flex;
+    margin-right: 0.5em
+}
+
+.star_img img {
+    width: 15px;
+    height: 15px;
+}
+
+.rating_numbers {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+}
+
+.total_price_wrapper {
+    margin-left: 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+.total_text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+}
+
+.total_price {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.checkout_button {
+    margin-top: 2em;
+}
+
+.checkout_button a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    border: 1px solid black;
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    color: white;
+    background: #062F4F;
+}
+
+.cart_courses_size {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 1em;
+}
+
+
+

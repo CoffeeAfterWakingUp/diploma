@@ -98,6 +98,32 @@ public class ContentService {
     }
 
 
+    public boolean addContentsToStudent(String username, UUID courseId) {
+        ResponseDTO<Boolean> response = null;
+        try {
+            String uri = "api/content/add/{courseId}/contents?username={username}";
+
+
+            response = restTemplate.exchange(uri,
+                    HttpMethod.POST,
+                    null,
+                    new ParameterizedTypeReference<ResponseDTO<Boolean>>() {},
+                    courseId, username).getBody();
+            log.info("response: {}", response);
+        } catch (Exception e) {
+            log.error("Exception: {}", e.getMessage());
+            return false;
+        }
+
+        boolean responseData = Optional.ofNullable(response)
+                .map(ResponseDTO::getData)
+                .orElse(false);
+
+        log.info("responseData: {}", responseData);
+        return responseData;
+    }
+
+
     public Map<UUID, String> getCompletedContentsId(UUID studentId, UUID courseId) {
         return getCompletedContentsOfStudent(studentId, courseId).stream()
                 .collect(Collectors.toMap(ContentDTO::getId, ContentDTO::getName));

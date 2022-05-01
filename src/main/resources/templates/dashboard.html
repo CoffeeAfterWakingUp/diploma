@@ -19,15 +19,59 @@
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert"
+                         th:if="${param.completePaymentSuccess}">
+                        All Courses successfully added to <a href="#" th:href="@{/my-courses}">My Courses</a>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     <div class="welcome_msg">
                         <p class="hi">Hi Conor</p>
                         <p class="what">What will you learn today?</p>
                     </div>
                     <div th:replace="fragments/slider :: slider"></div>
 
-                    <div class="row row-cols-3">
+                    <div class="top_courses_wrapper">
                         <p class="top_courses">Top Courses</p>
-                        <div class="col"></div>
+                        <div class="row row-cols-3 top_courses_cards">
+                            <th:block th:each="course : ${topCourses?.content}"
+                                      th:if="${not #lists.isEmpty(topCourses?.content)}">
+                                <div class="col">
+                                    <div class="course_card">
+                                        <a th:text="${course.title}" class="card_title"
+                                           th:href="@{/courses/{courseId}(courseId=${course.id})}"></a>
+                                        <th:block th:each="teacher,iter : ${course.teachers}">
+                                            <th:block th:if="${iter.index} == ${#lists.size(course.teachers)}">
+                                                <span class="author" th:text="${teacher} + ', '">Author name</span>
+                                            </th:block>
+                                            <th:block th:unless="${iter.index} == ${#lists.size(course.teachers)}">
+                                                <span class="author" th:text="${teacher}">Author name</span>
+                                            </th:block>
+                                        </th:block>
+                                        <div class="card_footer">
+                                            <span class="students">1 student</span>
+                                            <div class="star_img">
+                                                <img src="#" th:src="@{/images/fav.png}" alt="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </th:block>
+                        </div>
+                    </div>
+
+                    <div class="top_courses_wrapper">
+                        <p class="top_courses">Popular Categories</p>
+                        <div class="row row-cols-3 top_courses_cards">
+                            <th:block th:each="cat : ${popularCategories?.content}"
+                                      th:if="${not #lists.isEmpty(popularCategories?.content)}">
+                                <div class="col">
+                                    <div class="course_card">
+                                        <a th:text="${cat.name}" class="card_title"></a>
+                                    </div>
+                                </div>
+                            </th:block>
+                        </div>
                     </div>
                 </div>
             </div>

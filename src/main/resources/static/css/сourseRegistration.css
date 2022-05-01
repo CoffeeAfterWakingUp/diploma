@@ -33,6 +33,7 @@ html, body {
 .search_course {
     float: right;
     margin-bottom: 30px;
+    margin-top: 1em;
 }
 .search_input {
     background-color: #FFFFFF;

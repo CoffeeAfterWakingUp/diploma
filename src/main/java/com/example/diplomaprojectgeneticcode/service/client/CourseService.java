@@ -15,6 +15,7 @@ import java.util.*;
 @Service
 @Slf4j
 public class CourseService extends SharedService {
+
     private RestTemplate restTemplate;
 
 
@@ -254,6 +255,56 @@ public class CourseService extends SharedService {
         log.info("Course: {}", course);
         return course;
     }
+
+
+    public void rollInCourse(String username, UUID courseId) {
+        ResponseDTO<Boolean> response = null;
+        try {
+            String uri = "api/courses/{courseId}/rollIn?username={username}";
+
+            response = restTemplate.exchange(uri,
+                    HttpMethod.POST,
+                    null,
+                    new ParameterizedTypeReference<ResponseDTO<Boolean>>() {
+                    },
+                    courseId, username).getBody();
+            log.info("response: {}", response);
+        } catch (Exception e) {
+            log.error("Exception: {}", e.getMessage());
+        }
+
+        Boolean responseData = Optional.ofNullable(response)
+                .map(ResponseDTO::getData)
+                .orElse(false);
+
+        log.info("Response Data: {}", responseData);
+    }
+
+    public boolean isStudentRolledIn(String username, UUID courseId) {
+        ResponseDTO<Boolean> response = null;
+        try {
+            String uri = "api/courses/{courseId}/isAlreadyRolledIn?username={username}";
+
+            response = restTemplate.exchange(uri,
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<ResponseDTO<Boolean>>() {
+                    },
+                    courseId, username).getBody();
+            log.info("response: {}", response);
+        } catch (Exception e) {
+            log.error("Exception: {}", e.getMessage());
+            return false;
+        }
+
+        Boolean responseData = Optional.ofNullable(response)
+                .map(ResponseDTO::getData)
+                .orElse(false);
+
+        log.info("Response Data: {}", responseData);
+        return responseData;
+    }
+
 
 
 }

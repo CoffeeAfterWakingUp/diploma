@@ -3,14 +3,18 @@ package com.example.diplomaprojectgeneticcode.mapper;
 import com.example.diplomaprojectgeneticcode.dto.CourseDTO;
 import com.example.diplomaprojectgeneticcode.entity.Course;
 import com.example.diplomaprojectgeneticcode.entity.CourseStudent;
+import com.example.diplomaprojectgeneticcode.entity.Review;
 import com.example.diplomaprojectgeneticcode.entity.User;
 import com.example.diplomaprojectgeneticcode.enums.CourseLevel;
 import com.example.diplomaprojectgeneticcode.enums.Status;
 import com.example.diplomaprojectgeneticcode.service.interfaces.CategoryService;
+import com.example.diplomaprojectgeneticcode.service.interfaces.ReviewService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -19,7 +23,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CourseMapper {
 
-    private final CategoryService categoryService;
+    private final ReviewService reviewService;
+
 
     public Course toCourse(CourseDTO courseDto) {
         log.info("CourseDTO: {}", courseDto);
@@ -67,6 +72,22 @@ public class CourseMapper {
         courseOpt.map(Course::getUpdatedAt).ifPresent(courseDTO::setUpdatedAt);
         courseOpt.map(Course::getRules).ifPresent(courseDTO::setRules);
         courseOpt.map(Course::getAbsenceLimit).ifPresent(courseDTO::setAbsenceLimit);
+
+
+        courseDTO.setReviewCount((int) reviewService.getCountOfReviewsOfCourse(courseOpt.map(Course::getId).orElse(null)));
+
+
+        Double avgRating = reviewService.getAvgRatingOfCourse(courseOpt.map(Course::getId).orElse(null));
+        BigDecimal bd = BigDecimal.valueOf(avgRating);
+        avgRating = bd.setScale(1, RoundingMode.HALF_UP).doubleValue();
+
+        courseDTO.setRating(avgRating);
+
+        courseDTO.setStudentCount((int) courseOpt
+                .map(Course::getStudents)
+                .stream()
+                .count());
+
 
         Set<String> teachers = courseOpt.map(Course::getTeachers)
                 .orElse(new HashSet<>())

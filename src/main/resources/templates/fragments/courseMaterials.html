@@ -1,0 +1,67 @@
+<div th:fragment="course_materials (sections, inCourse)">
+    <th:block th:each="section, stat : ${sections}">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse"
+                            th:data-bs-target="'#accordion-body' + ${stat.index}"
+                            aria-expanded="false"
+                            th:aria-controls="'accordion-body' + ${stat.index}"
+                            th:text="${section.name}">
+                        Accordion Item #1
+                    </button>
+                </h2>
+                <div th:id="'accordion-body' + ${stat.index}" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="course_list">
+                            <th:block th:each="content : ${section.contents}">
+                                <div class="course_list__item">
+                                    <div class="left_side">
+                                        <th:block th:if="${inCourse}">
+                                            <th:block th:if="${content.isUserCompleted}">
+                                                <img th:src="@{/images/check.png}" alt="" width="24"
+                                                     height="24" src="#">
+                                            </th:block>
+                                            <th:block th:unless="${content.isUserCompleted}">
+                                                <div class="circle"></div>
+                                            </th:block>
+                                        </th:block>
+                                    </div>
+                                    <div class="right_side">
+                                        <div class="course_details">
+
+                                            <img th:src="@{/images/videoicon.svg}" alt=""
+                                                 th:if="${content.type == 'VIDEO'}">
+                                            <img th:src="@{/images/article.png}" alt=""
+                                                 th:unless="${content.type == 'VIDEO'}">
+
+                                            <p th:text="${content.name}">Hi (0:43)</p>
+                                        </div>
+
+                                        <th:block th:if="${inCourse}">
+                                            <th:block th:if="${content.isUserCompleted}">
+                                                <a class="completed text-decoration-none" href="#"
+                                                   th:href="@{/my-courses/{courseId}/curriculum/learn/{contentId}(courseId=${content.courseId}, contentId=${content.id})}">
+                                                    Completed
+                                                </a>
+                                            </th:block>
+                                            <th:block th:unless="${content.isUserCompleted}">
+                                                <a class="start text-decoration-none" href="#"
+                                                   th:href="@{/my-courses/{courseId}/curriculum/learn/{contentId}(courseId=${content.courseId}, contentId=${content.id})}">
+                                                    Complete
+                                                </a>
+                                            </th:block>
+                                        </th:block>
+
+                                    </div>
+                                </div>
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</div>

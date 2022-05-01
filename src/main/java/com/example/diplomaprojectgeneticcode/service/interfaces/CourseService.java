@@ -12,4 +12,7 @@ public interface CourseService {
     List<Course> getTopCourses();
     List<Course> getCoursesByTitleContaining(String title);
     List<Course> getCoursesByUsername(String username);
+    boolean rollInCourse(String username, UUID courseId);
+
+    boolean checkIsStudentRolledIn(String username, UUID courseId);
 }

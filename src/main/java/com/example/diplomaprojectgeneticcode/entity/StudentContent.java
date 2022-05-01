@@ -52,4 +52,12 @@ public class StudentContent {
         this.content = content;
         this.completed = isCompleted;
     }
+
+    public StudentContent(User student, Content content) {
+        this.id = new StudentContentId(student.getId(), content.getId());
+        this.student = student;
+        this.content = content;
+        this.completed = false;
+        this.attended = false;
+    }
 }

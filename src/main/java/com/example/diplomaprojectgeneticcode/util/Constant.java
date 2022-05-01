@@ -15,6 +15,7 @@ public final class Constant {
             "please activate your account using below url: " +
             "http://localhost:8081/api/auth/confirm-account/%s";
     public static final String USER_SESSION = "currentUser";
+    public static final String CART_SESSION = "cart";
 
     public static final String SIGN_IN_PAGE = "signIn";
     public static final String SIGN_UP_PAGE = "signUp";
@@ -25,6 +26,10 @@ public final class Constant {
     public static final String STUDENT_GRADES_PAGE = "StudentGrades";
     public static final String STUDENT_ATTENDANCE_PAGE = "StudentAttendance";
     public static final String STUDENT_MY_COURSES_PAGE = "StudentMyCourses";
+    public static final String COURSE_PAGE = "Course";
+    public static final String CART_PAGE = "Cart";
+    public static final String CHECKOUT_PAGE = "Checkout";
+    public static final String SETTINGS_PAGE = "Settings";
 
 
 }

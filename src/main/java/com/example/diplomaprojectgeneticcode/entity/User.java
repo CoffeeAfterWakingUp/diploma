@@ -42,6 +42,13 @@ public class User {
 
     private String image;
 
+    private String phoneNumber;
+
+    private String personalWebsiteUrl;
+
+    private String socialMediaUrl;
+
+
     @ManyToMany
     @JoinTable(
             name = "user_role",

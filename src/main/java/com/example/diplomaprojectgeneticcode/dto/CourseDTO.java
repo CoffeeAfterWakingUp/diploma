@@ -44,7 +44,11 @@ public class CourseDTO {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
 
-    private Integer rating;
+    private double rating;
+
+    private int reviewCount;
+
+    private int studentCount;
 
     private Set<String> students;
 

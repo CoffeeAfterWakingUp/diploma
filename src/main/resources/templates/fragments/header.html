@@ -6,7 +6,16 @@
     <h1 class="page_title" th:text="${courseTitle}">Java Programming</h1>
     <div class="header_menu">
         <div class="cart">
-            <img src="#" th:src="@{/images/headercart.svg}" alt="">
+            <a href="#" th:href="@{/cart}">
+                <img src="#" th:src="@{/images/headercart.svg}" alt="">
+            </a>
+
+            <div th:if="${session.cart != null && session.cart?.size() != 0}">
+                <div class="cart_size">
+                    <span th:text="${session.cart?.size()}"></span>
+                </div>
+            </div>
+
         </div>
         <div class="dashboard_type">
             Dashboard for teachers
