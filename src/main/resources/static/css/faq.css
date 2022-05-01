@@ -2,15 +2,17 @@ html, body {
     margin: 0;
     padding: 0;
     background: #062F4F;
-    width: 1920px;
-
+    width: 1400px;
 }
 .main {
     display: flex;
+    background: #062F4F;
+    width: 1400px;
 }
+
 /*SIDEBAR*/
 .sidebar {
-    width: 15%;
+    width: 18%;
     color: #fff;
     padding-top: 25px;
     background: #062F4F;
@@ -23,22 +25,21 @@ html, body {
     cursor: pointer;
 }
 .logo {
-  width: 182px;
-  height: 69px;
-  background: url("images/dark.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
+    width: 182px;
+    height: 69px;
+    background: url("../images/dark.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
 }
 .main_menu {
 }
 .menu_title {
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
@@ -54,21 +55,21 @@ ul {
     margin-bottom: 20px;
 }
 .menu_item {
-  height: 60px;
-  width: 90%;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding-left: 15.5px;
-  cursor: pointer;
+    height: 60px;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 15.5px;
+    cursor: pointer;
 
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 25px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
 
-  color: #CCD2E3;
+    color: #CCD2E3;
 }
 .menu_item.chosen {
     color: white;
@@ -122,11 +123,9 @@ ul {
 }
 /* Sidebar */
 
-
-
-
 .content_blog {
-    width: 82%;
+    width: 1350px;
+    background: antiquewhite;
 }
 /*HEADER*/
 .content_blog .header {
@@ -212,115 +211,40 @@ ul {
     cursor: pointer;
 }
 
-a{
-    text-decoration: none;
+
+/*CONTAINER*/
+.container{
+    height: 900px;
+}
+.head_faq{
     color: #062F4F;
+    font-size: 48px;
+    text-align: center;
+    margin-top: 88px;
 }
 
-.main-container{
-    background-color: #E5E5E5;
-    border-radius: 20px;
-    width: 1200px;
-    /* min-height:900px ; */
-  }
-
-.main-content{
-    background-color: white;
-    width: 90%;
-    height: 96%;
-    border-radius: 20px;
-    margin-top: 15px;
+.cards{
+    display: flex;
+    margin-top:50px;
 }
 
-.content{
-    width:85%;
-    margin-left: 90px;
+.card{
+    margin-left: 100px;
+    width: 40%;
 }
 
-.content h4{
+.big_char{
     color: #062F4F;
-    font-weight: 700;
+    font-size: 48px;
 }
 
-.left_side_info h5{
-    color: #062F4F;
-    font-size: 24px;
+.answer_body{
+    display: flex;
 }
 
-.left_side_info span{
+.answer_body>p{
+    margin-left: 20px;
+    margin-top: 20px;
     color: #062F4F;
     font-size: 18px;
-    font-weight: 500;
 }
-
-.cont_button{
-    background-color: #062F4F;
-    color: white;
-    width:70%;
-    border-radius: 12px;
-    text-align: center;
-    height: 25px;
-    font-weight: 500;
-    font-size: 16px;
-}
-
-#myProgress{
-    width: 100%;
-    background-color: gray;
-    border-radius: 20px;
-}
-
-#myBar {
-    width: 60%;
-    height: 20px;
-    background-color:#ca9c5a;
-    text-align: center; /* To center it horizontally (if you want) */
-    line-height: 20px; /* To center it vertically */
-    color: white;
-    border-radius: 12px;
-  }
-
- /* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-    background-color: #eee;
-    color: #062F4F;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-  }
-
-  .expected_time{
-      margin-left: 550px;
-  }
-
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .accordion:hover {
-    background-color: #ccc;
-  }
-
-  /* Style the accordion panel. Note: hidden by default */
-  .panel {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
-    overflow: hidden;
-  }
-
-  .accordion:after {
-    content: '\1F8A1'; /* Unicode character for "plus" sign (+) */
-    font-size: 24px;
-    color: #062F4F;
-    float: right;
-    margin-left: 5px;
-  }
-
-  .active:after {
-    content: "\1F8A0"; /* Unicode character for "minus" sign (-) */
-    color: #062F4F;
-  }

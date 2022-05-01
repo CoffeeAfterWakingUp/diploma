@@ -1,22 +1,22 @@
--- -- DROP DATABASE qcrm;
+-- DROP DATABASE qcrm;
 --
--- -- CREATE DATABASE qcrm;
+-- CREATE DATABASE qcrm;
 --
--- -- DROP TABLE IF EXISTS USER_ROLE;
--- -- DROP TABLE IF EXISTS ROLE;
--- -- DROP TABLE IF EXISTS USER_ACCOUNT;
--- -- DROP TABLE IF EXISTS COURSE;
--- -- DROP TABLE IF EXISTS COURSE_VIDEO;
--- -- DROP TABLE IF EXISTS CATEGORY;
+-- DROP TABLE IF EXISTS USER_ROLE;
+-- DROP TABLE IF EXISTS ROLE;
+-- DROP TABLE IF EXISTS USER_ACCOUNT;
+-- DROP TABLE IF EXISTS COURSE;
+-- DROP TABLE IF EXISTS COURSE_VIDEO;
+-- DROP TABLE IF EXISTS CATEGORY;
 --
--- -- DROP TYPE IF EXISTS status_enum;
--- -- DROP TYPE IF EXISTS course_level_enum;
+-- DROP TYPE IF EXISTS status_enum;
+-- DROP TYPE IF EXISTS course_level_enum;
 --
--- --
--- -- SELECT pg_terminate_backend(pg_stat_activity.pid)
--- -- FROM pg_stat_activity
--- -- WHERE pg_stat_activity.datname = 'qcrm'
--- --   AND pid <> pg_backend_pid();
+--
+-- SELECT pg_terminate_backend(pg_stat_activity.pid)
+-- FROM pg_stat_activity
+-- WHERE pg_stat_activity.datname = 'qcrm'
+--   AND pid <> pg_backend_pid();
 --
 -- CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 --
@@ -165,6 +165,9 @@
 -- --             REFERENCES CATEGORY (id)
 -- --             ON DELETE NO ACTION;
 --
+--Grades
+-- 1,Rus,2,2022-04-28 10:02:58.000000,54,24,54,24,40,Bolat
+-- 2,Rus,2,2022-04-28 10:02:58.000000,54,54,24,24,43,Aidar
+-- 3,Rus,2,2022-04-28 10:02:58.000000,54,54,32,24,35,Didar
 --
---
---
+-- --

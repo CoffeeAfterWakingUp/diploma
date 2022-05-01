@@ -3,7 +3,6 @@ html, body {
     padding: 0;
     background: #062F4F;
     height: 1080px;
-    width: 1920px;
     /* border: solid 1px red; */
 }
 .main {
@@ -39,7 +38,6 @@ html, body {
 .main_menu {
 }
 .menu_title {
-    font-family: 'Expletus Sans', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -65,7 +63,6 @@ ul {
     padding-left: 15.5px;
     cursor: pointer;
 
-    font-family: 'Expletus Sans', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -107,7 +104,6 @@ ul {
 
 
 .log_out {
-    font-family: 'Expletus Sans', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -451,4 +447,25 @@ textarea{
     height: 170px;
     padding-left: 250px;
     margin-left: 55px;
+}
+input[type="search"]{
+    display: none;
+}
+select{
+    display: none;
+}
+.dataTables_info{
+    display: none;
+}
+.dataTables_length{
+    display: none;
+}
+.dataTables_filter{
+    display: none;
+}
+.dataTables_paginate{
+    display: none;
+}
+#mainContentRow{
+ width: 1200px;
 }

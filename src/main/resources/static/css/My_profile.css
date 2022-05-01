@@ -38,7 +38,6 @@ html, body {
 .main_menu {
 }
 .menu_title {
-    font-family: 'Expletus Sans', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -64,7 +63,6 @@ ul {
   padding-left: 15.5px;
   cursor: pointer;
 
-  font-family: 'Expletus Sans', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -106,7 +104,6 @@ ul {
 
 
 .log_out {
-    font-family: 'Expletus Sans', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
