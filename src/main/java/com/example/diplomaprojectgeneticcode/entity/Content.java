@@ -40,6 +40,9 @@ public class Content {
     @ManyToOne(fetch = FetchType.LAZY)
     private Course course;
 
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
     private String contentUrl;
 
     private Integer orderNumber;

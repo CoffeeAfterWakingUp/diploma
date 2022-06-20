@@ -12,9 +12,9 @@
 </head>
 <body>
 <div class="main h-100">
-    <div th:replace="fragments/sidebar :: sidebar (page=${'courses'}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${'courses'}, isInCourse=${false}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${'Course'})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${'Course'}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">
@@ -58,11 +58,11 @@
                         <div class="col-5 wrapper">
                             <div class="course_img_wrapper">
                                 <div class="course_img">
-                                    <img src="#" th:src="@{/images/Rectangle 75(2).png}" alt="">
+                                    <img src="#" th:src="@{${'/img/' + course.image}}" alt="">
                                 </div>
                                 <div class="add_course">
                                     <div class="price">
-                                        <span th:text="${course?.price} + 'KZT'">17$</span>
+                                        <span th:text="${course?.price + '' + course?.currency}">17$</span>
                                     </div>
                                     <div class="cart_button" th:if="${!studentRolledIn}">
 
@@ -112,11 +112,10 @@
 
                     <div class="course_desc_wrapper">
                         <div class="course_desc_text"><span>Description</span></div>
-                        <div class="course_desc_body show_more_height">
-                            <span th:text="${course?.description}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium cupiditate dolores
+                        <div class="course_desc_body">
+                            <div th:utext="${course?.description}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium cupiditate dolores
                                 doloribus eaque impedit, maxime odit officiis placeat rerum voluptatibus? At excepturi
-                                iusto neque. Animi doloribus eligendi excepturi officia sequi.</span>
-                            <div class="show-more">(Show More)</div>
+                                iusto neque. Animi doloribus eligendi excepturi officia sequi.</div>
                         </div>
                     </div>
 

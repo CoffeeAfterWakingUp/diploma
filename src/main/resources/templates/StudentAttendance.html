@@ -11,9 +11,9 @@
 </head>
 <body>
 <div class="main h-100">
-    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${true}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${true}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${course.title})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${course.title}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">
@@ -67,7 +67,7 @@
                                                 <img th:src="@{/images/cancel.png}" src="#" alt=""
                                                      th:case="${false}">
                                             </th:block>
-                                            <span th:text="${att.attended} ?: '-'"></span>
+<!--                                            <span th:text="${att.attended} ?: '-'"></span>-->
                                         </td>
                                     </tr>
                                 </th:block>

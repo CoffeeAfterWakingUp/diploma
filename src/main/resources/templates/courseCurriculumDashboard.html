@@ -12,7 +12,7 @@
 <body>
 <div class="main h-100">
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${course.title})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${course.title}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">

@@ -1,13 +1,12 @@
 package com.example.diplomaprojectgeneticcode.rest;
 
+import com.example.diplomaprojectgeneticcode.dto.CourseBasicsDTO;
 import com.example.diplomaprojectgeneticcode.dto.CourseDTO;
-import com.example.diplomaprojectgeneticcode.dto.PaginatedResponse;
 import com.example.diplomaprojectgeneticcode.dto.ResponseDTO;
 import com.example.diplomaprojectgeneticcode.mapper.CourseMapper;
 import com.example.diplomaprojectgeneticcode.service.interfaces.CourseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +33,7 @@ public class CourseRestController extends AbstractRestController {
 
 
     @PostMapping("")
-    public ResponseEntity<ResponseDTO<CourseDTO>> createCourse(@RequestBody CourseDTO courseDto) {
+    public ResponseEntity<ResponseDTO<CourseDTO>> createCourse(@RequestBody CourseDTO courseDto) throws Exception {
         return success(
                 courseMapper.toDto(courseService.createCourse(courseMapper.toCourse(courseDto))),
                 CREATED);
@@ -61,6 +60,11 @@ public class CourseRestController extends AbstractRestController {
         return successOK(courseMapper.toDto(courseService.getCoursesByUsername(username)));
     }
 
+    @GetMapping("/teacher/{username}/courses")
+    public ResponseEntity<ResponseDTO<List<CourseDTO>>> getCoursesByTeacher(@PathVariable String username) {
+        return successOK(courseMapper.toDto(courseService.getCoursesByTeacher(username)));
+    }
+
     @PostMapping("/{courseId}/rollIn")
     public ResponseEntity<ResponseDTO<Boolean>> studentRollInCourse(@PathVariable UUID courseId, @RequestParam String username) {
         return successOK(courseService.rollInCourse(username, courseId));
@@ -69,6 +73,11 @@ public class CourseRestController extends AbstractRestController {
     @GetMapping("/{courseId}/isAlreadyRolledIn")
     public ResponseEntity<ResponseDTO<Boolean>> checkIsStudentRolledIn(@PathVariable UUID courseId, @RequestParam String username) {
         return successOK(courseService.checkIsStudentRolledIn(username, courseId));
+    }
+
+    @PatchMapping("/{id}/basics")
+    public ResponseEntity<ResponseDTO<Boolean>> updateCourseBasics(@PathVariable UUID id, @RequestBody CourseBasicsDTO dto) {
+        return successOK(courseService.updateCourseBasics(id, dto));
     }
 
 

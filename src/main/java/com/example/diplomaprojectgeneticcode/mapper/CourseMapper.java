@@ -72,12 +72,13 @@ public class CourseMapper {
         courseOpt.map(Course::getUpdatedAt).ifPresent(courseDTO::setUpdatedAt);
         courseOpt.map(Course::getRules).ifPresent(courseDTO::setRules);
         courseOpt.map(Course::getAbsenceLimit).ifPresent(courseDTO::setAbsenceLimit);
+        courseOpt.map(Course::getCurrency).ifPresent(courseDTO::setCurrency);
 
 
         courseDTO.setReviewCount((int) reviewService.getCountOfReviewsOfCourse(courseOpt.map(Course::getId).orElse(null)));
 
 
-        Double avgRating = reviewService.getAvgRatingOfCourse(courseOpt.map(Course::getId).orElse(null));
+        Double avgRating = Optional.ofNullable(reviewService.getAvgRatingOfCourse(courseOpt.map(Course::getId).orElse(null))).orElse(0.0);
         BigDecimal bd = BigDecimal.valueOf(avgRating);
         avgRating = bd.setScale(1, RoundingMode.HALF_UP).doubleValue();
 

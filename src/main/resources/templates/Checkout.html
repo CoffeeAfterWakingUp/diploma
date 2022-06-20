@@ -11,9 +11,9 @@
 </head>
 <body>
 <div class="main h-100">
-    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${'Checkout'})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${'Checkout'}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">
@@ -59,12 +59,12 @@
                                 <div class="course_list" th:each="course : ${courses}">
                                     <div class="course">
                                         <div class="course_img">
-                                            <img src="#" th:src="@{/images/Rectangle 75.png}" alt="">
+                                            <img src="#" th:src="@{${'/img/' + course.image}}" alt="">
                                         </div>
                                         <div class="course_name" th:text="${course.title}">
                                             Full Stack: Angular and Java Spring Boot E-Commerce Website
                                         </div>
-                                        <div class="course_price" th:text="${course.price}">
+                                        <div class="course_price" th:text="${course.price + '' + course.currency}">
                                             84.99$
                                         </div>
                                     </div>
@@ -79,7 +79,7 @@
                             <div class="price">
                                 <div class="total_price_wrapper">
                                     <div class="total_text">Total:</div>
-                                    <div class="total_price" th:text="${totalPrice}">$169.98</div>
+                                    <div class="total_price" th:text="${totalPrice + 'KZT'}">$169.98</div>
                                 </div>
                             </div>
                             <div class="complete_payment">

@@ -1,10 +1,13 @@
 package com.example.diplomaprojectgeneticcode.service.impl;
 
+import com.example.diplomaprojectgeneticcode.dto.CourseBasicsDTO;
 import com.example.diplomaprojectgeneticcode.entity.Course;
 import com.example.diplomaprojectgeneticcode.entity.CourseStudent;
 import com.example.diplomaprojectgeneticcode.entity.User;
+import com.example.diplomaprojectgeneticcode.enums.CourseLevel;
 import com.example.diplomaprojectgeneticcode.repo.CourseRepo;
 import com.example.diplomaprojectgeneticcode.repo.CourseStudentRepo;
+import com.example.diplomaprojectgeneticcode.service.interfaces.CategoryService;
 import com.example.diplomaprojectgeneticcode.service.interfaces.CourseService;
 import com.example.diplomaprojectgeneticcode.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -26,6 +30,7 @@ public class CourseServiceImpl implements CourseService {
     private final CourseRepo courseRepo;
     private final CourseStudentRepo courseStudentRepo;
     private final UserService userService;
+    private final CategoryService categoryService;
 
     @Override
     public Course createCourse(Course course) {
@@ -80,6 +85,10 @@ public class CourseServiceImpl implements CourseService {
         return false;
     }
 
+    @Override
+    public List<Course> getCoursesByTeacher(String username) {
+        return courseRepo.getCoursesByTeacher(username);
+    }
 
     @Override
     public boolean checkIsStudentRolledIn(String username, UUID courseId) {
@@ -87,5 +96,23 @@ public class CourseServiceImpl implements CourseService {
         Course course = getCourseById(courseId);
         CourseStudent courseStudent = new CourseStudent(course, user);
         return courseStudentRepo.findById(courseStudent.getId()).isPresent();
+    }
+
+
+    @Override
+    public boolean updateCourseBasics(UUID id, CourseBasicsDTO dto) {
+        courseRepo.updateCourseBasics(dto.getCourseTitle(),
+                dto.getCourseSubtitle(),
+                dto.getCourseDescription(),
+                dto.getCourseLang(),
+                CourseLevel.valueOf(dto.getCourseLevel()),
+                categoryService.getCategoryByName(dto.getCourseCategory()),
+                dto.getImageUrl(),
+                dto.getVideoUrl(),
+                id,
+                dto.getCurrency(),
+                dto.getPrice());
+
+        return true;
     }
 }

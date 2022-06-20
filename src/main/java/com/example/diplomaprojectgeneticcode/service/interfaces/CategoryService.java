@@ -9,4 +9,5 @@ public interface CategoryService {
     List<Category> getPopularCategories();
     Category getCategoryById(Integer id);
     List<Category> getAllCategories();
+    Category getCategoryByName(String name);
 }

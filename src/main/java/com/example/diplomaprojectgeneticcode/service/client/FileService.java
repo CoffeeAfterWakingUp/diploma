@@ -40,4 +40,9 @@ public class FileService {
 
         return "";
     }
+
+
+    public String getPlaceholderImage() {
+        return "image_placeholder.png";
+    }
 }

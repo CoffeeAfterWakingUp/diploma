@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <div th:replace="fragments/headLinks :: headLinks"></div>
+    <link rel="stylesheet" th:href="@{/css/TeacherDashboard.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+<div class="main">
+    <div th:replace="fragments/sidebar :: sidebar (page=${'dashboard'}, isInCourse=${false}, isTeacher=${true}, isTeacherInCourse=${false})"></div>
+    <div class="content_blog">
+        <div th:replace="fragments/header :: header (courseTitle=${'Dashboard'}, isTeacher=${true})"></div>
+        <div class="icontainer container-fluid">
+            <div class="cont_body">
+
+                <div class="">
+                    <div class="course_cards">
+                        <div class="card">
+                            <div class="cardPicture1"></div>
+                            <h3 class="cardName13">Total Students</h3>
+                            <a class="studentAmount13">576 students</a>
+                        </div>
+                        <div class="card">
+                            <div class="cardPicture2"></div>
+                            <h3 class="cardName24">Courses</h3>
+                            <a class="studentAmount2">50</a>
+                        </div>
+                        <div class="card">
+                            <div class="cardPicture3"></div>
+                            <h3 class="cardName13">Total Video</h3>
+                            <a class="studentAmount13">500 students</a>
+                        </div>
+                        <div class="card">
+                            <div class="cardPicture4"></div>
+                            <h3 class="cardName24">Total Earning</h3>
+                            <a class="studentAmount4">$ 13000</a>
+                        </div>
+                    </div>
+
+                    <div class="graphs_inline">
+                        <div class="chart_graph">
+                            <div id="chartContainer" style="height: 400px; width: 700px;padding-left: 50px"></div>
+                        </div>
+                        <div class="chart_pie">
+                            <section>
+                                <h3 class="sectionName">Students Geolocation Rate</h3>
+                                <div class="pieID pie">
+
+                                </div>
+                                <ul class="pieID legend">
+                                    <li>
+                                        <em>Almaty</em>
+                                        <span>718</span>
+                                    </li>
+                                    <li>
+                                        <em>Astana</em>
+                                        <span>531</span>
+                                    </li>
+                                    <li>
+                                        <em>Aktau</em>
+                                        <span>868</span>
+                                    </li>
+                                    <li>
+                                        <em>Shymkent</em>
+                                        <span>344</span>
+                                    </li>
+                                    <li>
+                                        <em>Kaskelen</em>
+                                        <span>1145</span>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Import jQuery before export.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--Data Table-->
+    <script type="text/javascript" src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        function sliceSize(dataNum, dataTotal) {
+            return (dataNum / dataTotal) * 360;
+        }
+
+        function addSlice(sliceSize, pieElement, offset, sliceID, color) {
+            $(pieElement).append("<div class='slice " + sliceID + "'><span></span></div>");
+            var offset = offset - 1;
+            var sizeRotation = -179 + sliceSize;
+            $("." + sliceID).css({
+                "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+            });
+            $("." + sliceID + " span").css({
+                "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)",
+                "background-color": color
+            });
+        }
+
+        function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+            var sliceID = "s" + dataCount + "-" + sliceCount;
+            var maxSize = 179;
+            if (sliceSize <= maxSize) {
+                addSlice(sliceSize, pieElement, offset, sliceID, color);
+            } else {
+                addSlice(maxSize, pieElement, offset, sliceID, color);
+                iterateSlices(sliceSize - maxSize, pieElement, offset + maxSize, dataCount, sliceCount + 1, color);
+            }
+        }
+
+        function createPie(dataElement, pieElement) {
+            var listData = [];
+            $(dataElement + " span").each(function () {
+                listData.push(Number($(this).html()));
+            });
+            var listTotal = 0;
+            for (var i = 0; i < listData.length; i++) {
+                listTotal += listData[i];
+            }
+            var offset = 0;
+            var color = [
+                "cornflowerblue",
+                "olivedrab",
+                "orange",
+                "tomato",
+                "crimson",
+                "purple",
+                "turquoise",
+                "forestgreen",
+                "navy",
+                "gray"
+            ];
+            for (var i = 0; i < listData.length; i++) {
+                var size = sliceSize(listData[i], listTotal);
+                iterateSlices(size, pieElement, offset, i, 0, color[i]);
+                $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+                offset += size;
+            }
+        }
+
+        createPie(".pieID.legend", ".pieID.pie");
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Working Activity"
+                },
+                axisX: {
+                    valueFormatString: "DDDD MMM",
+                    crosshair: {
+                        enabled: true,
+                        snapToDataPoint: true
+                    }
+                },
+                axisY: {
+                    title: "Percentage",
+                    valueFormatString: "%##0.00",
+                    crosshair: {
+                        enabled: true,
+                        snapToDataPoint: true,
+                        labelFormatter: function (e) {
+                            return "%" + CanvasJS.formatNumber(e.value, "##0.00");
+                        }
+                    }
+                },
+                data: [{
+                    type: "area",
+                    xValueFormatString: "DDDD",
+                    yValueFormatString: "$##0.00",
+                    dataPoints: [
+                        {x: new Date(2022, 4, 16), y: 0.0},
+                        {x: new Date(2022, 4, 17), y: 0.20},
+                        {x: new Date(2022, 4, 18), y: 0.30},
+                        {x: new Date(2022, 4, 19), y: 0.40},
+                        {x: new Date(2022, 4, 20), y: 0.60},
+                        {x: new Date(2022, 4, 21), y: 0.80},
+                        {x: new Date(2022, 4, 22), y: 0.100}
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+
+    </script>
+
+
+</body>
+</html>

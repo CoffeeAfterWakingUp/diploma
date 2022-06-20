@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${course?.title + ' - Course Basics'}">Course Basics</title>
+    <div th:replace="fragments/headLinks :: headLinks"></div>
+    <link rel="stylesheet" th:href="@{/css/TeacherCourseBasics.css}">
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+</head>
+<body>
+<div class="main h-100">
+    <div th:replace="fragments/sidebar :: sidebar (page=${'courses'},
+    isInCourse=${false}, isTeacher=${true}, isTeacherInCourse=${false})"></div>
+    <div class="content_blog">
+        <div th:replace="fragments/header :: header (courseTitle=${course?.title}, isTeacher=${true})"></div>
+        <div class="icontainer container-fluid">
+            <div class="cont_body">
+                <div class="curriculum">
+                    <div class="curriculum_header">
+                        <h1>Course Curriculum</h1>
+                    </div>
+
+                    <form action="#" th:action="@{/t/new-course/curriculum/save}" enctype="multipart/form-data" method="post">
+                        <input type="hidden" th:value="${course?.id}" name="id">
+                        <div class="course_basics_wrapper">
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Section</div>
+                                <div class="course_basics_pricing_wrapper">
+                                    <div class="currency_select_wrapper_item">
+                                        <select name="sectionId" type="text" onchange="showSection(this)">
+                                            <option value="">---</option>
+                                            <option value="1">Create a new section</option>
+                                            <th:block th:each="s : ${sections}">
+                                                <option th:text="${s.name}"
+                                                        th:value="${s.id}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course_basics_details_wrapper" style="display: none;" id="section_name">
+                                <div class="course_basics_label">New Section</div>
+                                <input type="text" name="newSection">
+                                <input type="hidden" th:value="${nextOrderNumber}" name="orderNumber">
+                            </div>
+                            <div class="course_basics_details_wrapper" style="display: none;">
+                                <div class="course_basics_label">Content Name</div>
+                                <input type="text" name="newSection">
+                                <input type="hidden" th:value="${nextOrderNumber}" name="orderNumber">
+                            </div>
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Content Type</div>
+                                <div class="course_basics_pricing_wrapper">
+                                    <div class="currency_select_wrapper_item">
+                                        <select name="contentType" type="text" onchange="showByContentType(this)">
+                                            <option value="">---</option>
+                                            <th:block th:each="cur : ${contentTypes}">
+                                                <option th:text="${cur}"
+                                                        th:value="${cur}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="course_basics_details_wrapper" id="lecture_content_type" style="display:none;">
+                                <div class="course_basics_details_wrapper">
+                                    <div class="course_basics_label">Lecture Description</div>
+                                    <textarea id="courseDesc1" name="desc"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="course_basics_details_wrapper" id="video_content_type" style="display:none;">
+                                <div class="course_basics_label">Main Video</div>
+                                <div class="course_basics_image_wrapper">
+                                    <div class="course_basics_image">
+                                        <img src="#" alt="" th:src="@{${'/img/' + courseBasics.videoUrl}}"
+                                             th:if="${#strings.equalsIgnoreCase(courseBasics.videoUrl, 'image_placeholder.png')}">
+                                        <video width="320" height="240" controls
+                                               th:if="${not #strings.equalsIgnoreCase(courseBasics.videoUrl, 'image_placeholder.png')}">
+                                            <source th:src="@{${'/files/' + courseBasics.videoUrl}}" type="video/mp4">
+                                            <source th:src="@{${'/files/' + courseBasics.videoUrl}}" type="video/wmv">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                    <div class="course_basics_image_details">
+                                        <div class="course_basics_image_details_item">
+                                            You can upload your video here.
+                                        </div>
+                                        <div class="course_basics_image_details_item">
+                                            <label for="p_video" class="custom_file_upload">Upload video</label>
+                                            <input type="file" id="p_video" name="file">
+                                            <input type="hidden" name="videoValue" th:value="${courseBasics.videoUrl}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="course_basics_details_wrapper">
+                                    <div class="course_basics_label">Video Description</div>
+                                    <textarea id="courseDesc" name="desc"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="course_basics_details_wrapper" id="download_content_type" style="display:none;">
+                                <div class="course_basics_label">Download</div>
+                                <div class="course_basics_image_wrapper">
+                                    <div class="course_basics_image_details">
+                                        <div class="course_basics_image_details_item">
+                                            You can upload a document here. Student then can upload it.
+                                        </div>
+                                        <div class="course_basics_image_details_item">
+                                            <label for="p_video" class="custom_file_upload">Upload a document</label>
+                                            <input type="file" name="file">
+                                            <input type="hidden" name="videoValue" th:value="${courseBasics.videoUrl}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_submit_wrapper">
+                                    <button type="submit">Save</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#courseDesc'))
+        .catch(error => {
+            console.error(error);
+        });
+
+    ClassicEditor
+        .create(document.querySelector('#courseDesc1'))
+        .catch(error => {
+            console.error(error);
+        });
+
+    function showByContentType(element) {
+        var contentType = element.value;
+        document.getElementById("lecture_content_type").style.display= 'none';
+        document.getElementById("video_content_type").style.display= 'none';
+        document.getElementById("download_content_type").style.display= 'none';
+        if (contentType === "Lecture") {
+            document.getElementById("lecture_content_type").style.display= 'block';
+        } else if (contentType === "Video") {
+            document.getElementById("video_content_type").style.display= 'block';
+        } else if (contentType === "Download") {
+            document.getElementById("download_content_type").style.display= 'block';
+        }
+    }
+
+    function showSection(element) {
+        var contentType = element.value;
+        document.getElementById("section_name").style.display= 'none';
+        if (contentType === "1") {
+            document.getElementById("section_name").style.display = 'block';
+        }
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>

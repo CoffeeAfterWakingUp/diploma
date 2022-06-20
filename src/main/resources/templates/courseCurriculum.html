@@ -8,12 +8,13 @@
     <title>Curriculum Content</title>
     <link rel="stylesheet" th:href="@{/css/CourseCurriculum.css}">
     <div th:replace="fragments/headLinks :: headLinks"></div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 </head>
 <body>
 <div class="main h-100">
-    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${true}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${'curriculum'}, isInCourse=${true}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${course.title})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${course.title}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">
@@ -41,8 +42,10 @@
                         </div>
                     </div>
                     <div class="course_body">
-                        <p>Course Description</p>
-                        <p th:text="${course.description}" class="course_description"></p>
+                        <p class="course_description_label">Course Description</p>
+                        <div th:utext="${course.description}" class="course_description"></div>
+
+
 
                         <th:block th:each="section, stat : ${sections}">
                             <div class="accordion accordion-flush" id="accordionFlushExample">

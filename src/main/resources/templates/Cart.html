@@ -11,9 +11,9 @@
 </head>
 <body>
 <div class="main h-100">
-    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${'Shopping Cart'})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${'Shopping Cart'}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">
@@ -27,7 +27,7 @@
                             <div class="cart_courses_list" th:each="course : ${courses}">
                                 <div class="cart_course">
                                     <div class="course_img">
-                                        <img src="#" th:src="@{/images/Rectangle 75.png}" alt="">
+                                        <img src="#" th:src="@{${'/img/' + course.image}}" alt="">
                                     </div>
                                     <div class="course_content">
                                         <div class="course_title">
@@ -55,7 +55,7 @@
                                                 (6035 ratings)
                                             </div>
                                         </div>
-                                        <div class="course_price" th:text="${course.price + 'KZT'}">
+                                        <div class="course_price" th:text="${course.price + '' + course.currency}">
                                             $84.49
                                         </div>
                                     </div>

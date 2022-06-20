@@ -12,9 +12,9 @@
 </head>
 <body>
 <div class="main h-100">
-    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${'Settings'})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${'Settings'}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">

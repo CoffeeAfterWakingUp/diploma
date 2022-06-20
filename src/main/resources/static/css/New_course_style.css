@@ -1,0 +1,278 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    display: flex;
+}
+
+
+a{
+    text-decoration: none;
+    color: #062F4F;
+}
+
+.main-content{
+    background-color: #E5E5E5;
+    border-radius: 20px;
+    width: 1200px;
+}
+.left-content{
+    background-color: white;
+    border-radius: 20px;
+    width: 100%;
+    margin-left: 0!important;
+    margin-top: 0!important;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    color: #062F4F;
+    padding: 1em;
+}
+
+/* .right-content{
+    background-color: white;
+    border-radius: 20px;
+    width: 440px;
+} */
+
+.inputs input,textarea{
+    border-radius: 12px;
+}
+textarea{
+    padding-left: 10px;
+    width: 1000px;
+}
+
+.submit_button{
+    border-radius: 12px ;
+    background-color:  #062F4F;
+    color: white;
+    padding:10px;
+    margin-left: 240px;
+}
+
+.submit_button:hover{
+    background-color: #104A8B;
+}
+
+/* dragтың бәрі оссында */
+.drag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drag-area{
+    border: 2px dashed #062F4F;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.drag.active{
+    border: 2px solid #fff;
+    background-color:aqua;
+}
+
+.drag-area .icon{
+    font-size: 30px;
+    color: #062F4F;
+}
+
+.drag-area header{
+    font-weight: 500px;
+    color: #062F4F;
+    font-size: 20px;
+}
+
+
+.drag2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drag-area2{
+    border: 2px dashed #062F4F;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.drag2.active{
+    border: 2px solid #fff;
+    background-color:aqua;
+}
+
+.drag-area2 .icon2{
+    font-size: 30px;
+    color: #062F4F;
+}
+
+.drag-area2 header{
+    font-weight: 500px;
+    color: #062F4F;
+    font-size: 20px;
+}
+
+.drag3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drag-area3{
+    border: 2px dashed #062F4F;
+    width: 500px;
+    height: 120px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.drag3.active{
+    border: 2px solid #fff;
+    background-color:aqua;
+}
+
+.drag-area3 .icon2{
+    font-size: 30px;
+    color: #062F4F;
+}
+
+.drag-area3 header{
+    font-weight: 500px;
+    color: #062F4F;
+    font-size: 20px;
+}
+
+
+
+/* ////////////////////////////////////////////////////////////////////// */
+.other_info{
+    padding-top: 50px;
+}
+
+
+.headh4{
+    color: #062F4F;
+}
+
+.tricks{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 5px;
+    color: white;
+    /* width: 300px; */
+    /* height: 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 23px;
+    background: #062F4F;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.tricks2{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 5px;
+    /* color: #062F4F; */
+    /* width: 300px; */
+    /* height: 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 23px;
+    background: white;
+    /* box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    border-radius: 10px;
+    border: 1px solid #062F4F;
+}
+
+
+.body_of_trick{
+    color:#CCD2E3;
+    font-size: 16px;
+}
+
+.left_side{
+    background-color: #062F4F;
+    color: white;
+    height: 63px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.body_of_trick2{
+    color:#062F4F;
+    font-size: 16px;
+}
+
+.drag-area2{
+    border: 2px dashed #062F4F;
+    width: 600px;
+    height: 120px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.d_h{
+    margin-top: 25px;
+}
+#other{
+    padding-top: 0px;
+}
+.submitLabel{
+    height: 170px;
+    padding-left: 250px;
+    margin-left: 55px;
+    position: relative;
+}
+.fileElem{
+    width: 461px;
+    height: 300px;
+    background: inherit;
+    display: inherit;
+}
+#inputFile{
+    margin-left: 70px;
+    color: #062F4F;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    width: 400px;
+    height: 50px;
+    margin-top: 300px;
+}
+input[type=file]::file-selector-button {
+    border: 2px solid #6c5ce7;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: #a29bfe;
+    transition: 1s;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: #81ecec;
+    border: 2px solid #00cec9;
+}

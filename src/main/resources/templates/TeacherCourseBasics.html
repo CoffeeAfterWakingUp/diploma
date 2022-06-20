@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${course.title + ' - Course Basics'}">Course Basics</title>
+    <div th:replace="fragments/headLinks :: headLinks"></div>
+    <link rel="stylesheet" th:href="@{/css/TeacherCourseBasics.css}">
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+</head>
+<body>
+<div class="main h-100">
+    <div th:replace="fragments/sidebar :: sidebar (page=${'Course Basics'},
+    isInCourse=${false}, isTeacher=${true}, isTeacherInCourse=${true})"></div>
+    <div class="content_blog">
+        <div th:replace="fragments/header :: header (courseTitle=${course?.title}, isTeacher=${true})"></div>
+        <div class="icontainer container-fluid">
+            <div class="cont_body">
+                <div class="curriculum">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert"
+                         th:if="${param.response}">
+                        Course Details successfully updated
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="curriculum_header">
+                        <h1>Course Basics</h1>
+                    </div>
+
+                    <form action="#" th:action="@{/t/my-courses/save}" enctype="multipart/form-data" method="post"
+                          th:object="${courseBasics}">
+                        <input type="hidden" th:value="${course?.id}" name="id">
+                        <div class="course_basics_wrapper">
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Course Title</div>
+                                <input type="text" id="courseTitle" th:value="${courseBasics?.courseTitle}"
+                                       th:field="*{courseTitle}">
+                            </div>
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Course Subtitle</div>
+                                <input type="text" id="courseSubtitle" th:value="${courseBasics?.courseSubtitle}"
+                                       th:field="*{courseSubtitle}">
+                            </div>
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Course Description</div>
+                                <textarea id="courseDesc"
+                                          th:value="${courseBasics?.courseDescription}"
+                                          th:text="${courseBasics?.courseDescription}"
+                                          th:field="*{courseDescription}"></textarea>
+                            </div>
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Basic Info</div>
+                                <div class="course_basics_details_wrapper_inline">
+                                    <div class="course_lang_wrapper">
+                                        <select name="" th:field="*{courseLang}" type="text">
+                                            <option value="">---</option>
+                                            <th:block th:each="language : ${languages}">
+                                                <option th:text="${language}"
+                                                        th:value="${language}"
+                                                        th:selected="${#strings.equals(language, course?.courseLang)}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                    <div class="course_level_wrapper">
+                                        <select name="" th:field="*{courseLevel}" type="text">
+                                            <option value="">---</option>
+                                            <th:block th:each="level : ${levels}">
+                                                <option th:text="${level}"
+                                                        th:value="${level}"
+                                                        th:selected="${#strings.equals(level, course?.courseLevel)}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                    <div class="course_category_wrapper">
+                                        <select name="" th:field="*{courseCategory}" type="text">
+                                            <option value="">--</option>
+                                            <th:block th:each="category : ${categories}">
+                                                <option th:text="${category.name}"
+                                                        th:value="${category.name}"
+                                                        th:selected="${#strings.equals(category.name, course.category)}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Pricing</div>
+                                <div class="course_basics_pricing_wrapper">
+                                    <div class="currency_select_wrapper_item">
+                                        <select name="" th:field="*{currency}" type="text">
+                                            <option value="">---</option>
+                                            <th:block th:each="cur : ${currencies}">
+                                                <option th:text="${cur}"
+                                                        th:value="${cur}"
+                                                        th:selected="${#strings.equals(cur, course?.currency)}"></option>
+                                            </th:block>
+                                        </select>
+                                    </div>
+                                    <div class="currency_select_wrapper_item">
+                                        <input type="text" th:value="${courseBasics?.price}" th:field="*{price}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Course Image</div>
+                                <div class="course_basics_image_wrapper">
+                                    <div class="course_basics_image">
+                                        <img src="#" alt="" th:src="@{${'/img/' + courseBasics.imageUrl}}">
+                                    </div>
+                                    <div class="course_basics_image_details">
+                                        <div class="course_basics_image_details_item">
+                                            Upload your course image here.
+                                        </div>
+                                        <div class="course_basics_image_details_item">
+                                            <label for="p_image" class="custom_file_upload">Change image</label>
+                                            <input type="file" id="p_image" name="image"
+                                                   th:value="${courseBasics.imageUrl}">
+                                            <input type="hidden" name="imageValue" th:value="${courseBasics.imageUrl}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_label">Promotional video</div>
+                                <div class="course_basics_image_wrapper">
+                                    <div class="course_basics_image">
+                                        <img src="#" alt="" th:src="@{${'/img/' + courseBasics.videoUrl}}"
+                                             th:if="${#strings.equalsIgnoreCase(courseBasics.videoUrl, 'image_placeholder.png')}">
+                                        <video width="320" height="240" controls
+                                               th:if="${not #strings.equalsIgnoreCase(courseBasics.videoUrl, 'image_placeholder.png')}">
+                                            <source th:src="@{${'/files/' + courseBasics.videoUrl}}" type="video/mp4">
+                                            <source th:src="@{${'/files/' + courseBasics.videoUrl}}" type="video/wmv">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                    <div class="course_basics_image_details">
+                                        <div class="course_basics_image_details_item">
+                                            Students who watch a well-made promo video are more likely to enroll in your
+                                            course.
+                                        </div>
+                                        <div class="course_basics_image_details_item">
+                                            <label for="p_video" class="custom_file_upload">Change video</label>
+                                            <input type="file" id="p_video" name="video">
+                                            <input type="hidden" name="videoValue" th:value="${courseBasics.videoUrl}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="course_basics_details_wrapper">
+                                <div class="course_basics_submit_wrapper">
+                                    <button type="submit">Save</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#courseDesc'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>

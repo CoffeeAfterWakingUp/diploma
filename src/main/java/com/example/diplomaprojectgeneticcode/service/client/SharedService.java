@@ -64,6 +64,18 @@ public class SharedService {
                 );
     }
 
+    public Set<String> getCurrencies() {
+        return Set.of(
+             "USD", "KZT", "RUB"
+        );
+    }
+
+    public Set<String> getContentTypes() {
+        return Set.of(
+                "Lecture", "Video", "Download"
+        );
+    }
+
 
     public Set<String> getLevels() {
         return CourseLevel.levels();

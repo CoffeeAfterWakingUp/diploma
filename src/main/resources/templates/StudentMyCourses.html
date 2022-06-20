@@ -11,9 +11,9 @@
 </head>
 <body>
 <div class="main h-100">
-    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${page})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${page}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">
@@ -34,7 +34,7 @@
                                       th:if="${not #lists.isEmpty(coursesPage.content)}">
                                 <div class="course_card">
                                     <div class="course_img">
-                                        <img th:src="@{/images/Rectangle 75.png}" alt="">
+                                        <img th:src="@{${'/img/' + course.image}}" alt="">
                                     </div>
                                     <div class="course_info">
                                         <div class="course_info_header">

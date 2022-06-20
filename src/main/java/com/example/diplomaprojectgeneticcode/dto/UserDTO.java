@@ -21,4 +21,5 @@ public class UserDTO {
     private String image;
     private boolean enabled;
     private boolean locked;
+    private String fullName = name + " " + surname;
 }

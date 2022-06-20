@@ -29,7 +29,7 @@
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 26px;
     color: #062F4F;
 }
@@ -51,7 +51,7 @@ p.instructor {
     margin-bottom: 2em;
 }
 
-.course_body p:first-child {
+.course_body .course_description_label {
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 600;

@@ -13,9 +13,9 @@
 </head>
 <body>
 <div class="main h-100">
-    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${'dashboard'}, isInCourse=${false}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle=${'Dashboard'})"></div>
+        <div th:replace="fragments/header :: header (courseTitle=${'Dashboard'}, isTeacher=${false})"></div>
         <div class="icontainer container-fluid">
             <div class="cont_body">
                 <div class="curriculum">
@@ -25,7 +25,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <div class="welcome_msg">
-                        <p class="hi">Hi Conor</p>
+                        <p class="hi">Hi User</p>
                         <p class="what">What will you learn today?</p>
                     </div>
                     <div th:replace="fragments/slider :: slider"></div>

@@ -16,6 +16,7 @@ public final class Constant {
             "http://localhost:8081/api/auth/confirm-account/%s";
     public static final String USER_SESSION = "currentUser";
     public static final String CART_SESSION = "cart";
+    public static final String USER_DTO_SESSION = "currentUserDto";
 
     public static final String SIGN_IN_PAGE = "signIn";
     public static final String SIGN_UP_PAGE = "signUp";
@@ -30,6 +31,17 @@ public final class Constant {
     public static final String CART_PAGE = "Cart";
     public static final String CHECKOUT_PAGE = "Checkout";
     public static final String SETTINGS_PAGE = "Settings";
+    public static final String STUDENT_MY_COURSE_PAGE = "TeacherMycourse";
+    public static final String NEW_COURSE_PAGE = "NewCourse";
+    public static final String MY_PROFILE_PAGE = "Myprofile";
+    public static final String GRADES_PAGE = "Grades";
+    public static final String TEACHER_DASHBOARD_PAGE = "TeacherDashboard";
+    public static final String FAQ_PAGE = "FAQ";
+    public static final String NEWS_PAGE = "news";
+    public static final String TEACHER_MY_COURSES_PAGE="TeacherMyCourses";
+    public static final String TEACHER_COURSE_BASICS_PAGE = "TeacherCourseBasics";
+    public static final String TEACHER_NEW_COURSE_PAGE = "TeacherNewCourse";
+    public static final String TEACHER_COURSE_CURRICULUM_PAGE = "TeacherCourseCurriculum";
 
 
 }

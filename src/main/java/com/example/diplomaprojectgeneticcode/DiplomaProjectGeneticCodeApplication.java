@@ -62,26 +62,28 @@ public class DiplomaProjectGeneticCodeApplication implements CommandLineRunner {
         categoryService.createCategory(new Category("Testing", null));
 
 
-        User user = new User("name", "surname", "180103273@stu.sdu.edu.kz", passwordEncoder.encode("pass"), "bio", Status.ACTIVE, "image", true, false);
+        User user = new User("teacher", "teacher", "180103273@stu.sdu.edu.kz", passwordEncoder.encode("pass"), "bio", Status.ACTIVE, "44b9539c-8481-4139-88d7-34656b3f27e8.google.jpg", true, false);
 
         User newUser = userService.create(user);
         System.out.println(newUser);
 
         Course course = new Course(
                 "React JS",
-                "subtitile",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "e0df29d3-2ba1-492f-919f-01c15c99742c.f703a951-3527-4a7b-be41-948492470ea1.jpg",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "f5c53ab1-d2bf-4e53-b44c-4850e8a3752f.react.png",
                 null,
-                "benefits",
-                "reqs",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                 CourseLevel.BEGINNER_LEVEL,
-                "Englsi",
+                "English",
                 "wel",
                 "congrs",
                 new BigDecimal(40000),
                 Status.ACTIVE,
                 categoryRepo.findCategoryByName("Development"));
+
+        course.setCurrency("KZT");
 
         course.setCreatedAt(LocalDateTime.now());
         course.setUpdatedAt(LocalDateTime.now());
@@ -89,22 +91,23 @@ public class DiplomaProjectGeneticCodeApplication implements CommandLineRunner {
         course.addTeacher(newUser);
 
 
-
         Course course1 = new Course(
                 "Java SE",
-                "subtitile",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "e0df29d3-2ba1-492f-919f-01c15c99742c.f703a951-3527-4a7b-be41-948492470ea1.jpg",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "87707f93-6b81-4b34-8f76-2f25b38b75be.javaSe.png",
                 null,
-                "benefits",
-                "reqs",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                 CourseLevel.BEGINNER_LEVEL,
-                "Englsi",
+                "English",
                 "wel",
                 "congrs",
                 new BigDecimal(50000),
                 Status.ACTIVE,
                 categoryRepo.findCategoryByName("Testing"));
+
+        course1.setCurrency("KZT");
 
         course1.setCreatedAt(LocalDateTime.now());
         course1.setUpdatedAt(LocalDateTime.now());
@@ -112,25 +115,26 @@ public class DiplomaProjectGeneticCodeApplication implements CommandLineRunner {
         course1.addTeacher(newUser);
 
 
-
-
         Course course2 = new Course("Java Spring",
-                "subtitile",
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "e0df29d3-2ba1-492f-919f-01c15c99742c.f703a951-3527-4a7b-be41-948492470ea1.jpg",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "08829b86-7fb8-40fe-8f30-3b287bcd5a69.Java.png",
                 null,
-                "benefits",
-                "reqs",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                 CourseLevel.BEGINNER_LEVEL,
-                "Englsi",
+                "English",
                 "wel",
                 "congrs",
                 new BigDecimal(30000),
                 Status.ACTIVE,
                 categoryRepo.findCategoryByName("Development"));
 
+        course2.setCurrency("KZT");
+
         course2.setCreatedAt(LocalDateTime.now().minusDays(10));
         course2.setUpdatedAt(LocalDateTime.now().minusDays(10));
+        course2.addTeacher(newUser);
 
 
         Course courseCreated = courseService.createCourse(course);
@@ -166,24 +170,16 @@ public class DiplomaProjectGeneticCodeApplication implements CommandLineRunner {
         );
 
         contentRepo.save(
-                new Content("Course Outline", ContentType.VIDEO, section, courseCreated, "69e2df96-a08f-4e27-9c50-5ad03d98fc1c.week6.mp4")
+                new Content("Course Outline", ContentType.VIDEO, section, courseCreated, "c5f75fb3-a641-4394-8243-825916747092.week11.mp4")
         );
 
         contentRepo.save(
-                new Content("Are you getting it?", ContentType.ARTICLE, section, courseCreated, "50e13a85-c899-4aaf-8039-390aaf9a967b.сырбек.pdf")
+                new Content("Are you getting it?", ContentType.DOWNLOAD, section, courseCreated, "d39255ed-ef58-4e37-907b-3c8311748979.example.txt")
         );
 
         contentRepo.save(
-                new Content("Course Outline 1", ContentType.VIDEO, section1, courseCreated, "")
+                new Content("Course Outline 1", ContentType.VIDEO, section1, courseCreated, "b2d60ae8-bae3-4615-9fc4-671cc70143c5.10week.mp4")
         );
-
-        contentRepo.save(
-                new Content("Are you getting it? 1", ContentType.LECTURE, section1, courseCreated,  "")
-        );
-
-
-
-
 
 
     }

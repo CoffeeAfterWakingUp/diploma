@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Course</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <div th:replace="fragments/headLinks :: headLinks"></div>
+    <link rel="stylesheet" th:href="@{/css/New_course_style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+<div class="main">
+    <div th:replace="fragments/sidebar :: sidebar (page=${'courses'}, isInCourse=${false}, isTeacher=${true})"></div>
+    <div class="content_blog">
+        <div th:replace="fragments/header :: header (courseTitle=${'New Course'}, isTeacher=${true})"></div>
+        <div class="icontainer container-fluid">
+            <div class="cont_body">
+                    <div class="">
+                        <div class="col-8 left-content ms-2 mt-2">
+                            <form action="" method="">
+                                <h4 class="mt-5 ms-5 other_info headh4" id="other">Course Information</h4>
+                                <hr>
+                                <div class="row inputs">
+                                    <div class="col-5 ms-5">
+                                        <input type="text" class="form-control" id="course_name"
+                                               placeholder="Course Name">
+                                        <textarea name="tags" rows="6" class="mt-4" id="course_description"
+                                                  placeholder="Description"></textarea>
+                                        <input type="number" class="form-control mt-3" id="course_price"
+                                               placeholder="Price">
+
+                                    </div>
+
+                                </div>
+
+                                <h4 class="mt-5 ms-5 headh4">File Upload</h4>
+                                <hr>
+
+                                <div class="row ms-5">
+                                    <div class="col-5">
+                                        <h5>Main Courses File</h5>
+                                        <div class="drag" id="drop-area">
+                                            <form class="my-form">
+                                                <div class="drag-area">
+
+                                                    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                                    <header>Drag & Drop to Upload File</header>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                    <input type="file" name="file" id="inputFile"/>
+                                    <!--                  <div class="col-5">-->
+                                    <!--                    <h5>Main Courses File</h5>-->
+                                    <!--                    <div class="drag2">-->
+                                    <!--                        <div class="drag-area2">-->
+                                    <!--                          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>-->
+                                    <!--                          <header>Drag & Drop to Upload File</header>-->
+                                    <!--                        </div>-->
+                                    <!--                    </div>-->
+                                    <!--                    <h5 class="d_h">File with sceketches</h5>-->
+                                    <!--                    <div class="drag3">-->
+                                    <!--                        <div class="drag-area3">-->
+                                    <!--                          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>-->
+                                    <!--                          <header>Drag & Drop to Upload File</header>-->
+                                    <!--                        </div>-->
+                                    <!--                    </div>-->
+
+                                    <!--                  </div>-->
+                                </div>
+
+                                <label class="submitLabel">
+                                    <input id="agreement" type="checkbox" value="agree"> I am totally agree with Term &
+                                    Condition</input>
+                                    <input type="Submit" value="Submit For Review" class="submit_button mt-5"
+                                           th:onclick="saveCourse()">
+                                </label>
+
+                            </form>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    <!--<script src="static/js/new_course_js.js"></script>-->
+
+    <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function saveCourse() {
+            let courseName = $('#course_name').val();
+            let courseDescription = $('#course_description').val();
+            let coursePrice = $('#course_price').val();
+            let inputFile = $('#inputFile').val();
+
+            var form = new FormData();
+            form.append("courseName", courseName);
+            form.append("courseDescription", courseDescription);
+            form.append("coursePrice", coursePrice);
+            form.append("inputFile", inputFile)
+
+            var settings = {
+                "url": "/rest/newcourse/create",
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "contentType": false,
+                "data": form
+            };
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                if (response.result) {
+                    $('#course_name').val(undefined);
+                    $('#course_description').val(undefined);
+                    $('#course_price').val(undefined);
+                }
+            });
+            document.location.reload();
+        }
+    </script>
+
+
+</body>
+</html>

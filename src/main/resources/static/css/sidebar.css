@@ -28,7 +28,6 @@
 .main_menu {
 }
 .menu_title {
-    /*font-family: 'Expletus Sans', sans-serif;*/
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -53,7 +52,6 @@ ul {
     position: relative;
     cursor: pointer;
 
-    font-family: 'Expletus Sans', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;

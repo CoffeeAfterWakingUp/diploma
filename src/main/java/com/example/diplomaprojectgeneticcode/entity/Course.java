@@ -19,7 +19,6 @@ import java.util.*;
 @Setter
 //@ToString
 @EqualsAndHashCode(exclude = {"teachers", "promoVideo", "students"})
-@NoArgsConstructor
 public class Course {
 
     @Id
@@ -27,25 +26,25 @@ public class Course {
     @Type(type="pg-uuid")
     private UUID id;
 
-    @Column(nullable = false, length = 300)
+    @Column(length = 300)
     private String title;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT")
     private String subtitle;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT")
     private String image;
 
     @Column(name = "promo_video")
     private String promoVideoUrl;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT")
     private String benefits;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column( columnDefinition = "TEXT")
     private String requirements;
 
     @Column(columnDefinition = "TEXT")
@@ -55,10 +54,10 @@ public class Course {
     private Integer absenceLimit;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "course_level", nullable = false)
+    @Column(name = "course_level")
     private CourseLevel courseLevel;
 
-    @Column(name = "course_lang", nullable = false)
+    @Column(name = "course_lang")
     private String courseLang;
 
     @Column(name = "welcome_msg", columnDefinition = "TEXT")
@@ -67,13 +66,15 @@ public class Course {
     @Column(name = "congrats_msg", columnDefinition = "TEXT")
     private String congratsMsg;
 
-    @Column(nullable = false)
+
     private BigDecimal price;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(name = "created_at", nullable = false)
+    private String currency;
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
@@ -143,5 +144,9 @@ public class Course {
         this.price = price;
         this.status = status;
         this.category = category;
+    }
+
+    public Course() {
+        this.createdAt = LocalDateTime.now();
     }
 }

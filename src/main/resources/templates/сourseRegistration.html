@@ -11,9 +11,9 @@
 </head>
 <body>
 <div class="main">
-    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false})"></div>
+    <div th:replace="fragments/sidebar :: sidebar (page=${page}, isInCourse=${false}, isTeacher=${false}, isTeacherInCourse=${false})"></div>
     <div class="content_blog">
-        <div th:replace="fragments/header :: header (courseTitle='Course Registration')"></div>
+        <div th:replace="fragments/header :: header (courseTitle='Course Registration', isTeacher=${false})"></div>
         <div class="icontainer">
 <!--            <div class="course_types">-->
 <!--                <div class="course_type top_courses">Top Courses</div>-->
@@ -100,14 +100,14 @@
                               th:if="${not #lists.isEmpty(coursesPage.content)}">
                         <div class="course_card">
                             <div class="course_img">
-                                <img th:src="@{/images/Rectangle 75.png}" alt="">
+                                <img th:src="@{${'/img/' + course.image}}" alt="">
                             </div>
                             <div class="course_info">
                                 <div class="course_info_header">
 
                                     <a th:text="${course.title}" class="course_name" th:href="@{/courses/{course}(course=${course.id})}"></a>
                                     <div class="course_price">
-                                        <p class="pirce_now" th:text="${course.price}">21 $</p>
+                                        <p class="pirce_now" th:text="${course.price + '' + course.currency}">21 $</p>
                                         <!--                                        <p class="price_before">97 $</p>-->
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@
                                         <div class="rate_icons">
                                             <img th:src="@{/images/star.svg}" alt="">
                                         </div>
-                                        <span class="reviews"> (1753)</span>
+                                        <span class="reviews" th:text="${'(' + course.reviewCount + ')'}"> (2)</span>
                                     </div>
                                     <!--                                    <div class="best_seller">Best Seller</div>-->
                                 </div>

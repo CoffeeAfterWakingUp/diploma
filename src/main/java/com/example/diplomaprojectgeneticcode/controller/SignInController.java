@@ -2,6 +2,8 @@ package com.example.diplomaprojectgeneticcode.controller;
 
 import com.example.diplomaprojectgeneticcode.dto.LoginRequest;
 import com.example.diplomaprojectgeneticcode.dto.ResponseDTO;
+import com.example.diplomaprojectgeneticcode.service.client.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +23,11 @@ import static com.example.diplomaprojectgeneticcode.util.Constant.*;
 @Controller
 @RequestMapping("signIn")
 @Slf4j
+@RequiredArgsConstructor
 public class SignInController {
 
     private RestTemplate restTemplate;
+    private final UserService userService;
 
     @Autowired
     public void setRestTemplate(RestTemplate restTemplate) {
@@ -62,6 +66,7 @@ public class SignInController {
 
 
         session.setAttribute(USER_SESSION, loginRequest.getEmail());
+        session.setAttribute(USER_DTO_SESSION, userService.getUserByUsername(loginRequest.getEmail()));
         return new ModelAndView("redirect:/" + DASHBOARD_PAGE);
     }
 }

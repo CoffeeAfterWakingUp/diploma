@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+
+<div class="sidebar" th:fragment="sidebar (page, isInCourse)">
+    <div class="logo"></div>
+    <div class="main_menu">
+        <p class="menu_title">MAIN MENU</p>
+        <ul class="menu_list">
+            <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'dashboard') ? 'chosen' : ''}">
+                <img src="#" th:src="@{/images/dashboard.svg}" alt="">
+                <a href="#" th:href="@{/t/dashboard}">Dashboard</a>
+            </li>
+            <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'courses') ? 'chosen' : ''}">
+                <img src="#" th:src="@{/images/courseReg.svg}" alt="">
+                <a href="#" th:href="@{/t/new-course/basics}">New Course</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main_menu">
+        <p class="menu_title">WORKSPACE</p>
+        <ul class="menu_list">
+            <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'my courses') ? 'chosen' : ''}">
+                <img src="#" th:src="@{/images/mycourse.svg}" alt="">
+                <a href="#" th:href="@{/t/my-courses}">My Courses</a>
+            </li>
+
+            <th:block th:if="${isInCourse}">
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'basics') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/mycourse.svg}" alt="">
+                    <a href="#" th:href="@{manage/basics}">Course Basics</a>
+                </li>
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'curriculum') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/mycourse.svg}" alt="">
+                    <a href="#" th:href="@{curriculum}">Curriculum</a>
+                </li>
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'grades') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/Grades.svg}" alt="">
+                    <a href="#" th:href="@{grades}">Grades</a>
+                </li>
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'attendance') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/Attendance.svg}" alt="">
+                    <a href="#" th:href="@{attendance}">Attendance</a>
+                </li>
+            </th:block>
+        </ul>
+    </div>
+    <div class="main_menu">
+        <p class="menu_title">GENERAL</p>
+        <ul class="menu_list">
+            <th:block th:if="${isInCourse}">
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'payment') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/Payment.svg}" alt="">
+                    <a href="#">Payment</a>
+                </li>
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'contacts') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/Contacts.svg}" alt="">
+                    <a href="#">Contacts</a>
+                </li>
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'faq') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/faq.svg}" alt="">
+                    <a href="#">FAQ</a>
+                </li>
+            </th:block>
+            <th:block th:if="${!isInCourse}">
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'faq') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/faq.svg}" alt="">
+                    <a href="#">FAQ</a>
+                </li>
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'news') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/Payment.svg}" alt="">
+                    <a href="#">News</a>
+                </li>
+                <li class="menu_item" th:classappend="${#strings.equalsIgnoreCase(page, 'settings') ? 'chosen' : ''}">
+                    <img src="#" th:src="@{/images/Setting_alt_line.svg}" alt="">
+                    <a href="#" th:href="@{/settings}">Settings</a>
+                </li>
+            </th:block>
+        </ul>
+    </div>
+
+    <div class="log_out">
+        <img src="#" th:src="@{/images/Signout.svg}" alt="">
+        <a href="#" th:href="@{/signout}">Sign Out</a>
+    </div>
+</div>
+
+
+</body>
+</html>

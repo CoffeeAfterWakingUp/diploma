@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Course Registration</title>
+    <link rel="stylesheet" th:href="@{/css/faq.css}">
+</head>
+<body>
+<div class="main">
+    <div class="sidebar">
+        <div class="logo">
+
+        </div>
+        <div class="main_menu">
+            <p class="menu_title">MAIN MENU</p>
+            <ul class="menu_list">
+                <li class="menu_item ">
+                    <img th:src="@{/images/dashboard.svg}" alt="">
+                    <span onclick="location.href = 'http://localhost:8081/teacher-dashboard'">Dashboard</span>
+                </li>
+                <li class="menu_item">
+                    <img th:src="@{/images/courseReg.svg}" alt="">
+                    <span onclick="location.href = 'http://localhost:8081/new-course' ">New Course</span>
+                </li>
+            </ul>
+        </div>
+        <div class="main_menu">
+            <p class="menu_title">Workspace</p>
+            <ul class="menu_list">
+                <li class="menu_item ">
+                    <img th:src="@{/images/mycourse.svg}" alt="">
+                    <span>My Courses</span>
+                </li>
+                <li class="menu_item ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                        <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                    </svg>
+                    <span class="ms-2">Students</span>
+                </li>
+                <li class="menu_item ">
+                    <img th:src="@{/images/Grades.svg}" alt="">
+                    <span class="ms-2" onclick="location.href = 'http://localhost:8081/grades'">Grades</span>
+                </li>
+                <li class="menu_item ">
+                    <img th:src="@{/images/Attendance.svg}" alt="">
+                    <span class="ms-2">Attendance</span>
+                </li>
+            </ul>
+        </div>
+        <div class="main_menu">
+            <p class="menu_title">General</p>
+            <ul class="menu_list">
+                <li class="menu_item ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                    </svg>
+                    <span class="ms-2" onclick="location.href = 'http://localhost:8081/FAQ'"> FAQ</span>
+                </li>
+                <li class="menu_item ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+                        <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+                        <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+                    </svg>
+                    <span class="ms-2">News</span>
+                </li>
+                <li class="menu_item ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                    </svg>
+                    <span class="ms-2">Settings</span>
+                </li>
+        </div>
+
+        <div class="log_out">
+            <img th:src="@{/images/Signout.svg}" alt="">
+            Sign Out
+        </div>
+    </div>
+    <div class="content_blog">
+        <div class="header">
+            <h1 class="page_title">News</h1>
+            <div class="header_menu">
+                <div class="cart">
+                    <img th:src="@{/images/headercart.svg}" alt="">
+                </div>
+                <a href="">
+                    <div class="dashboard_type">
+                        Dashboard Teacher
+                    </div>
+                </a>
+                <div class="user">
+                    <div class="user_profile">
+                        <img th:src="@{/images/userprofile.png}" alt="">
+                    </div>
+                    <div class="user_name">User Name</div>
+                    <button class="user_details_button">
+                        <img th:src="@{/images/selectArrow.svg}" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="course_types">
+                <img th:src="@{/images/sduBack.png}" alt="" width="99%" height="300px" style="background-size: cover">
+            </div>
+            <h2 class="cont_head">Top Universities in Qazaqstan 2022</h2>
+            <div class="cont_body">
+
+                <img th:src="@{/images/sduLeft.jpg}" alt="" height="20%" width="40%" style="background-size: cover" class="cont_img">
+
+                <div class="card">
+                    <div class="card_head">
+                        <span class="edu_head">Education</span>
+                        <div class="card_svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h2 class="card_body_head"> Suleyman Demirel University</h2>
+                    <p class="card_body">Our vision at SDU is to be the leading internationally-oriented university in Central Asia, recognized for our teaching and learning; innovation, enquiry and discovery; and the excellence of our graduates....Our vision at SDU is to be the leading </p>
+                    <p class="card_body2">Read more...</p>
+                    <div class="card_footer">
+                        <span>2 hours ago</span>
+                        <span>4min read</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cont_body">
+
+                <img src="img/kbtu.png" alt="" height="20%" width="65%" class="cont_img">
+
+                <div class="card">
+                    <div class="card_head">
+                        <span class="edu_head">Education</span>
+                        <div class="card_svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h2 class="card_body_head">Kazakh British Technical University</h2>
+                    <p class="card_body">Our vision at KBTU is to be the leading internationally-oriented university in Central Asia, recognized for our teaching and learning; innovation, enquiry and discovery; and the excellence of our graduates.... </p>
+                    <p class="card_body2">Read more...</p>
+                    <div class="card_footer">
+                        <span>2 hours ago</span>
+                        <span>4min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

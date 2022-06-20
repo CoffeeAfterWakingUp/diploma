@@ -1,10 +1,12 @@
 package com.example.diplomaprojectgeneticcode.service.client;
 
+import com.example.diplomaprojectgeneticcode.dto.CourseBasicsDTO;
 import com.example.diplomaprojectgeneticcode.dto.CourseDTO;
 import com.example.diplomaprojectgeneticcode.dto.ResponseDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -215,6 +217,31 @@ public class CourseService extends SharedService {
         return courses;
     }
 
+    public List<CourseDTO> getCoursesOfTeacher(String username) {
+        ResponseDTO<List<CourseDTO>> response = null;
+        try {
+            String uri = "api/courses/teacher/{username}/courses";
+
+            response = restTemplate.exchange(uri,
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<ResponseDTO<List<CourseDTO>>>() {
+                    },
+                    username).getBody();
+            log.info("response: {}", response);
+        } catch (Exception e) {
+            log.error("Exception: {}", e.getMessage());
+            return Collections.emptyList();
+        }
+
+        List<CourseDTO> courses = Optional.ofNullable(response)
+                .map(ResponseDTO::getData)
+                .orElse(Collections.emptyList());
+
+        log.info("Courses: {}", courses);
+        return courses;
+    }
+
     public List<CourseDTO> filterCoursesByTitle(String title, List<CourseDTO> courses) {
         if (title.isBlank()) {
             return courses;
@@ -305,6 +332,31 @@ public class CourseService extends SharedService {
         return responseData;
     }
 
+    public boolean updateCourseBasics(UUID id, CourseBasicsDTO dto) {
+        ResponseDTO<Boolean> response = null;
+        try {
+            String uri = "api/courses/{id}/basics";
+
+            HttpEntity<CourseBasicsDTO> entity = new HttpEntity<>(dto);
+
+            response = restTemplate.exchange(uri,
+                    HttpMethod.PATCH,
+                    entity,
+                    new ParameterizedTypeReference<ResponseDTO<Boolean>>() {},
+                    id).getBody();
+            log.info("response: {}", response);
+        } catch (Exception e) {
+            log.error("Exception: {}", e.getMessage());
+            return false;
+        }
+
+        Boolean responseData = Optional.ofNullable(response)
+                .map(ResponseDTO::getData)
+                .orElse(false);
+
+        log.info("Response Data: {}", responseData);
+        return responseData;
+    }
 
 
 }
